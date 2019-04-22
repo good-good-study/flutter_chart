@@ -6,5 +6,6 @@ class ChartBean {
   int millisSeconds;
   Color color;
 
-  ChartBean({@required this.x, @required this.y, this.millisSeconds, this.color});
+  ChartBean(
+      {@required this.x, @required this.y, this.millisSeconds, this.color});
 }

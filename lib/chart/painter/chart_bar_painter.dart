@@ -1,8 +1,8 @@
 import 'dart:ui';
 
+import 'package:flutter/material.dart';
 import 'package:flutter_chart/chart/chart_bean.dart';
 import 'package:flutter_chart/chart/painter/base_painter.dart';
-import 'package:flutter/material.dart';
 
 class ChartBarPainter extends BasePainter {
   double fixedHeight, fixedWidth; //宽高
@@ -19,13 +19,14 @@ class ChartBarPainter extends BasePainter {
   static const double basePadding = 16; //默认的边距
   static const Color defaultColor = Colors.deepPurple;
 
-  ChartBarPainter(this.chartBeans,
-      this.rectColor, {
-        this.value = 1,
-        this.isShowX = false,
-        this.fontSize = 12,
-        this.fontColor,
-      });
+  ChartBarPainter(
+    this.chartBeans,
+    this.rectColor, {
+    this.value = 1,
+    this.isShowX = false,
+    this.fontSize = 12,
+    this.fontColor,
+  });
 
   @override
   void paint(Canvas canvas, Size size) {

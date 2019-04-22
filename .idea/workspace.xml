@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9d12650f-2e61-4730-9c04-bd2598ae0d91" name="Default Changelist" comment="" />
+    <list default="true" id="9d12650f-2e61-4730-9c04-bd2598ae0d91" name="Default Changelist" comment="...">
+      <change afterPath="$PROJECT_DIR$/lib/example/example.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/chart/chart_bean.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chart/chart_bean.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/chart/painter/chart_bar_painter.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chart/painter/chart_bar_painter.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/chart/painter/chart_line_painter.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chart/painter/chart_line_painter.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/flutter_chart.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/flutter_chart.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -11,33 +20,31 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/chart/chart_bean.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pubspec.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="24" column="11" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
+            <state relative-caret-position="15">
+              <caret line="2" column="14" lean-forward="true" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/LICENSE">
+        <entry file="file://$PROJECT_DIR$/lib/flutter_chart.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+            <state relative-caret-position="-1">
+              <caret line="4" column="58" lean-forward="true" selection-start-line="4" selection-start-column="58" selection-end-line="4" selection-end-column="58" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dart File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="UPDATE_TYPE" value="MERGE" />
@@ -47,14 +54,21 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/LICENSE" />
+        <option value="$PROJECT_DIR$/lib/chart/painter/base_painter.dart" />
+        <option value="$PROJECT_DIR$/lib/chart/painter/chart_bar_painter.dart" />
+        <option value="$PROJECT_DIR$/lib/chart/painter/chart_line_painter.dart" />
+        <option value="$PROJECT_DIR$/lib/flutter_chart.dart" />
+        <option value="$PROJECT_DIR$/lib/example/example.dart" />
+        <option value="$PROJECT_DIR$/pubspec.yaml" />
+        <option value="$PROJECT_DIR$/CHANGELOG.md" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="1938" />
-    <option name="height" value="1048" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-1553" />
+    <option name="y" value="88" />
+    <option name="width" value="1551" />
+    <option name="height" value="839" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -62,6 +76,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -69,12 +85,27 @@
               <item name="flutter_chart" type="b2602c69:ProjectViewProjectNode" />
               <item name="flutter_chart" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="flutter_chart" type="b2602c69:ProjectViewProjectNode" />
+              <item name="flutter_chart" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="flutter_chart" type="b2602c69:ProjectViewProjectNode" />
+              <item name="flutter_chart" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="chart" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="flutter_chart" type="b2602c69:ProjectViewProjectNode" />
+              <item name="flutter_chart" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="example" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -95,6 +126,12 @@
         </RuleState>
       </list>
     </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="tests in bin" type="FlutterTestConfigType" factoryName="Flutter Test" nameIsGenerated="true">
+      <option name="testFile" value="D:\WorkerSpace\flutter_chart\lib\example\example.dart" />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SvnConfiguration">
     <configuration>C:\Users\Administrator\AppData\Roaming\Subversion</configuration>
@@ -117,26 +154,44 @@
     <option name="localTasksCounter" value="2" />
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="tests_in_bin - 2019.04.22 at 15h 33m 53s.xml">
+      <configuration name="tests in bin" configurationId="FlutterTestConfigType" />
+    </history-entry>
+    <history-entry file="tests_in_bin - 2019.04.22 at 15h 35m 01s.xml">
+      <configuration name="tests in bin" configurationId="FlutterTestConfigType" />
+    </history-entry>
+    <history-entry file="tests_in_bin - 2019.04.22 at 15h 35m 28s.xml">
+      <configuration name="tests in bin" configurationId="FlutterTestConfigType" />
+    </history-entry>
+    <history-entry file="tests_in_bin - 2019.04.22 at 15h 35m 53s.xml">
+      <configuration name="tests in bin" configurationId="FlutterTestConfigType" />
+    </history-entry>
+    <history-entry file="tests_in_bin - 2019.04.22 at 15h 36m 05s.xml">
+      <configuration name="tests in bin" configurationId="FlutterTestConfigType" />
+    </history-entry>
+  </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-1553" y="88" width="1551" height="839" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.29289544" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.23205902" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
       <window_info id="Resources Explorer" order="5" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Favorites" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="0" />
+      <window_info anchor="bottom" id="Run" order="0" weight="0.44868034" />
       <window_info anchor="bottom" id="TODO" order="1" />
       <window_info anchor="bottom" id="Debug" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="3" weight="0.7346041" />
-      <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" visible="true" weight="0.24486804" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="3" visible="true" weight="0.60939795" />
+      <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" weight="0.24340177" />
       <window_info anchor="bottom" id="Flutter Performance" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="6" weight="0.32991204" />
       <window_info anchor="bottom" id="Dart Analysis" order="7" weight="0.329429" />
-      <window_info anchor="bottom" id="Messages" order="8" weight="0.20967741" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.30058652" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
       <window_info anchor="right" id="Theme Preview" order="1" />
       <window_info anchor="right" id="Flutter Inspector" order="2" />
@@ -152,13 +207,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="..." />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/chart/chart_bean.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.git/config">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -166,34 +214,110 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pubspec.lock">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
+    <entry file="file://$USER_HOME$/Desktop/izhaohu.ovpn">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="24" column="11" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
-        </state>
+        <state relative-caret-position="-432" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.flowconfig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="729">
+        <state relative-caret-position="608">
           <caret line="75" column="29" lean-forward="true" selection-start-line="75" selection-start-column="29" selection-end-line="75" selection-end-column="29" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pubspec.lock">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flutter_chart.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        <state relative-caret-position="92">
+          <caret line="4" column="7" lean-forward="true" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/chart/painter/base_painter.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/chart/chart_bean.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/chart/painter/chart_line_painter.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="136" column="46" lean-forward="true" selection-start-line="136" selection-start-column="46" selection-end-line="136" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/chart/painter/chart_bar_painter.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/flutter_chart_test.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="4" column="13" lean-forward="true" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/LICENSE">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+        <state relative-caret-position="192">
+          <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/example/example.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="66" column="8" selection-start-line="66" selection-start-column="8" selection-end-line="66" selection-end-column="8" />
+          <folding>
+            <element signature="e#923#1748#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CHANGELOG.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="2" column="14" lean-forward="true" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/flutter_chart.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1">
+          <caret line="4" column="58" lean-forward="true" selection-start-line="4" selection-start-column="58" selection-end-line="4" selection-end-column="58" />
         </state>
       </provider>
     </entry>
