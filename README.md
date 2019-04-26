@@ -5,8 +5,9 @@
 # 怎么使用？
 
 - 添加依赖
-   flutter_chart: ^0.0.1
+   flutter_chart: ^0.1.2
 
 ## 我的博客
 
 - [CSDN](https://blog.csdn.net/sxt_zls)
+- [GitHub](https://github.com/good-good-study/flutter_chart)
