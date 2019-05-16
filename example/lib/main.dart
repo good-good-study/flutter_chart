@@ -19,22 +19,16 @@ class ExampleChart extends StatelessWidget {
     return Scaffold(
       body: Container(
         color: Colors.white,
-        child: Column(
+        child: ListView(
           children: <Widget>[
-            Expanded(
-              child: ListView(
-                children: <Widget>[
-                  SizedBox(
-                    height: 8,
-                  ),
-                  _buildChartLine(context),
-                  SizedBox(
-                    height: 8,
-                  ),
-                  _buildChartBar(context),
-                ],
-              ),
-            )
+            SizedBox(
+              height: 8,
+            ),
+            _buildChartLine(context),
+            SizedBox(
+              height: 8,
+            ),
+            _buildChartBar(context),
           ],
         ),
       ),

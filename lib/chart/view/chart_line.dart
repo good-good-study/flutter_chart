@@ -95,8 +95,8 @@ class ChartLineState extends State<ChartLine>
 
   @override
   void dispose() {
-    super.dispose();
     if (_controller != null) _controller.dispose();
+    super.dispose();
   }
 
   @override
