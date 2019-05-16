@@ -1,19 +1,10 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility that Flutter provides. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
-import 'package:example/main.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_chart/flutter_chart.dart';
-import 'package:flutter_test/flutter_test.dart';
+//import 'package:example/Example.dart';
+//import 'package:flutter_test/flutter_test.dart';
 
 void main() {
- group('Chart Test', (){
-   testWidgets("example chart", (WidgetTester tester) async{
-     tester.pumpWidget(Example());
-   });
- });
+//  group('Chart Test', () {
+//    testWidgets("example chart", (WidgetTester tester) async {
+//      tester.pumpWidget(Example());
+//    });
+//  });
 }

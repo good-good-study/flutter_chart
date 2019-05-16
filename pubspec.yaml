@@ -1,6 +1,6 @@
 name: flutter_chart
 description: Flutter Canvas draws Bezier curves and histograms, embeds animations, and the entire drawing process is clearly visible. A very interesting Widget
-version: 0.1.2
+version: 0.1.3
 author: xt.sun<xingtao.sun@gmail.com>
 homepage: https://blog.csdn.net/sxt_zls
 
