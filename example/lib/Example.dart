@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_chart/chart/chart_pie_bean.dart';
+import 'package:flutter_chart/chart/view/chart_pie.dart';
 import 'package:flutter_chart/flutter_chart.dart';
 
 ///Demo : how to use Chart
@@ -14,20 +17,37 @@ class Example extends StatelessWidget {
 class ExampleChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        color: Colors.white,
-        child: ListView(
-          children: <Widget>[
-            SizedBox(
-              height: 8,
-            ),
-            _buildChartLine(context),
-            SizedBox(
-              height: 8,
-            ),
-            _buildChartBar(context),
-          ],
+    return AnnotatedRegion(
+      value: SystemUiOverlayStyle.dark
+          .copyWith(statusBarColor: Colors.black..withOpacity(0)),
+      child: Scaffold(
+        body: Container(
+          color: Colors.white,
+          child: ListView(
+            physics: BouncingScrollPhysics(),
+            children: <Widget>[
+              AnnotatedRegion(
+                value: SystemUiOverlayStyle.light
+                    .copyWith(statusBarBrightness: Brightness.dark),
+                child: Column(
+                  children: <Widget>[
+                    SizedBox(
+                      height: 8,
+                    ),
+                    _buildChartLine(context),
+                    SizedBox(
+                      height: 8,
+                    ),
+                    _buildChartBar(context),
+                    SizedBox(
+                      height: 8,
+                    ),
+                    _buildChartPie(context),
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -80,6 +100,28 @@ class ExampleChart extends StatelessWidget {
       rectColor: Colors.deepPurple,
       backgroundColor: Colors.black,
       isShowX: true,
+      fontColor: Colors.white,
+    );
+  }
+
+  ///pie
+  ChartPie _buildChartPie(context) {
+    return ChartPie(
+      chartBeans: [
+        ChartPieBean(type: '话费', value: 30, color: Colors.blueGrey),
+        ChartPieBean(type: '零食', value: 120, color: Colors.deepPurple),
+        ChartPieBean(type: '衣服', value: 60, color: Colors.green),
+        ChartPieBean(type: '早餐', value: 60, color: Colors.blue),
+        ChartPieBean(type: '水果', value: 30, color: Colors.red),
+      ],
+      size: Size(
+          MediaQuery.of(context).size.width, MediaQuery.of(context).size.width),
+      backgroundColor: Colors.black,
+      R: MediaQuery.of(context).size.width /3,
+      centerR: 4,
+      duration: Duration(milliseconds: 3000),
+      isCycle: true,
+      centerColor: Colors.white,
       fontColor: Colors.white,
     );
   }

@@ -35,9 +35,13 @@ class ChartBarPainter extends BasePainter {
     drawBar(canvas, size); //柱状图
   }
 
+  @override
+  bool shouldRepaint(ChartBarPainter oldDelegate) {
+    return oldDelegate.value != value;
+  }
+
   ///初始化
   void init(Size size) {
-    print('size - - > $size');
     startX = basePadding;
     endX = size.width - basePadding;
     startY = size.height - (isShowX ? basePadding * 3 : basePadding);

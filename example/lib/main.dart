@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 import 'Example.dart';
 
-void main() => Example();
+void main() => runApp(Example());

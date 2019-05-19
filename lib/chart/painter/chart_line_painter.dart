@@ -101,7 +101,6 @@ class ChartLinePainter extends BasePainter {
 
   ///计算边界
   void initBorder(Size size) {
-    print('size - - > $size');
     this.size = size;
     startX = yNum > 0 ? basePadding * 2.5 : basePadding * 2; //预留出y轴刻度值所占的空间
     endX = size.width - basePadding * 2;

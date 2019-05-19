@@ -37,10 +37,10 @@ packages:
   flutter_chart:
     dependency: "direct main"
     description:
-      name: flutter_chart
-      url: "https://pub.flutter-io.cn"
-    source: hosted
-    version: "0.1.1"
+      path: ".."
+      relative: true
+    source: path
+    version: "0.1.3"
   flutter_test:
     dependency: "direct dev"
     description: flutter

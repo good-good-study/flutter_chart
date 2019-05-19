@@ -72,7 +72,7 @@ class ChartLineState extends State<ChartLine>
     super.initState();
     if (widget.isAnimation) {
       _controller = AnimationController(vsync: this, duration: widget.duration);
-      Tween(begin: 0.0, end: widget.duration.inMilliseconds.toDouble())
+      Tween(begin: 0.0, end: 1.0)
           .animate(_controller)
             ..addStatusListener((status) {
               if (status == AnimationStatus.completed) {
