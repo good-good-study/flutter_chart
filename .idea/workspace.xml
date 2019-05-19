@@ -4,21 +4,9 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d12650f-2e61-4730-9c04-bd2598ae0d91" name="Default Changelist" comment="添加Demo">
-      <change afterPath="$PROJECT_DIR$/lib/chart/chart_pie_bean.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/chart/painter/chart_pie_painter.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/chart/view/chart_pie.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+    <list default="true" id="9d12650f-2e61-4730-9c04-bd2598ae0d91" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/lib/Example.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/Example.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/chart/painter/chart_bar_painter.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chart/painter/chart_bar_painter.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/chart/painter/chart_line_painter.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chart/painter/chart_line_painter.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/chart/view/chart_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chart/view/chart_bar.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/chart/view/chart_line.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chart/view/chart_line.dart" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,40 +20,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/example/lib/Example.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="115" column="8" lean-forward="true" selection-start-line="115" selection-start-column="8" selection-end-line="115" selection-end-column="8" />
+            <state relative-caret-position="268">
+              <caret line="116" column="17" lean-forward="true" selection-start-line="116" selection-start-column="17" selection-end-line="116" selection-end-column="17" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
                 <element signature="e#1628#2453#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lib/chart/painter/chart_pie_painter.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="72" column="37" lean-forward="true" selection-start-line="72" selection-start-column="37" selection-end-line="72" selection-end-column="37" />
-              <folding>
-                <element signature="e#0#17#0" expanded="true" />
-                <element signature="e#2288#2511#0" />
-                <element signature="e#2916#3030#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/chart/painter/base_painter.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="9" column="2" lean-forward="true" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="2" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -111,8 +73,8 @@
         <option value="$PROJECT_DIR$/lib/chart/view/chart_line.dart" />
         <option value="$PROJECT_DIR$/lib/chart/view/chart_bar.dart" />
         <option value="$PROJECT_DIR$/../Chart/chart/src/main/java/com/sxt/library/chart/ChartPie.java" />
-        <option value="$PROJECT_DIR$/example/lib/Example.dart" />
         <option value="$PROJECT_DIR$/lib/chart/painter/chart_pie_painter.dart" />
+        <option value="$PROJECT_DIR$/example/lib/Example.dart" />
       </list>
     </option>
   </component>
@@ -139,17 +101,6 @@
             <path>
               <item name="flutter_chart" type="b2602c69:ProjectViewProjectNode" />
               <item name="flutter_chart" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="flutter_chart" type="b2602c69:ProjectViewProjectNode" />
-              <item name="flutter_chart" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="flutter_chart" type="b2602c69:ProjectViewProjectNode" />
-              <item name="flutter_chart" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="chart" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -286,7 +237,14 @@
       <option name="project" value="LOCAL" />
       <updated>1556245398449</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="添加了饼图">
+      <created>1558273851777</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1558273851778</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -326,7 +284,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="1" weight="0.13345864" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.16290727" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
@@ -338,8 +296,8 @@
       <window_info anchor="bottom" id="Run" order="0" sideWeight="0.49937344" weight="0.44699872" />
       <window_info anchor="bottom" id="TODO" order="1" />
       <window_info anchor="bottom" id="Debug" order="2" weight="0.2627551" />
-      <window_info anchor="bottom" id="Terminal" order="3" weight="0.75" />
-      <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.50062656" side_tool="true" weight="0.5841837" />
+      <window_info anchor="bottom" id="Terminal" order="3" weight="0.28607917" />
+      <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.50062656" side_tool="true" weight="0.5836526" />
       <window_info anchor="bottom" id="Flutter Performance" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="6" weight="0.32991204" />
       <window_info anchor="bottom" id="Dart Analysis" order="7" weight="0.329429" />
@@ -393,7 +351,8 @@
     <MESSAGE value="更新版本" />
     <MESSAGE value="添加示例代码" />
     <MESSAGE value="添加Demo" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加Demo" />
+    <MESSAGE value="添加了饼图" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加了饼图" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.git/config">
@@ -628,10 +587,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lib/chart/painter/chart_pie_painter.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-452">
+          <caret line="65" column="26" lean-forward="true" selection-start-line="65" selection-start-column="26" selection-end-line="65" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+            <element signature="e#2288#2511#0" />
+            <element signature="e#2916#3030#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/chart/painter/base_painter.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="9" column="2" lean-forward="true" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="2" />
+        <state relative-caret-position="174">
+          <caret line="6" column="28" lean-forward="true" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
@@ -640,23 +611,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/example/lib/Example.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="115" column="8" lean-forward="true" selection-start-line="115" selection-start-column="8" selection-end-line="115" selection-end-column="8" />
+        <state relative-caret-position="268">
+          <caret line="116" column="17" lean-forward="true" selection-start-line="116" selection-start-column="17" selection-end-line="116" selection-end-column="17" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
             <element signature="e#1628#2453#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/chart/painter/chart_pie_painter.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="72" column="37" lean-forward="true" selection-start-line="72" selection-start-column="37" selection-end-line="72" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-            <element signature="e#2288#2511#0" />
-            <element signature="e#2916#3030#0" />
           </folding>
         </state>
       </provider>

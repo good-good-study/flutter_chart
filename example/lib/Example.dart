@@ -118,7 +118,7 @@ class ExampleChart extends StatelessWidget {
           MediaQuery.of(context).size.width, MediaQuery.of(context).size.width),
       backgroundColor: Colors.black,
       R: MediaQuery.of(context).size.width /3,
-      centerR: 4,
+      centerR: 6,
       duration: Duration(milliseconds: 3000),
       isCycle: true,
       centerColor: Colors.white,
