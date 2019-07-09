@@ -26,9 +26,17 @@ class ChartLinePainter extends BasePainter {
   double rulerWidth; //刻度的宽度或者高度
   Color rulerColor; //刻度的颜色
   double startX, endX, startY, endY;
-  double fixedHeight, fixedWidth; //宽高
+  double _fixedHeight, _fixedWidth; //宽高
   Path path;
-  Size size;
+  Map<double, Offset> _points = new Map();
+
+  bool _isAnimationEnd = false;
+  bool _isPressed = false;
+  LongPressMoveUpdateDetails _longPressMoveUpdateDetails;
+  LongPressStartDetails _longPressStartDetails;
+
+  LongPressMoveUpdateDetails Function() pressedMove;
+  LongPressStartDetails Function() pressedStart;
 
   static const Color defaultColor = Colors.deepPurple;
 
@@ -53,23 +61,39 @@ class ChartLinePainter extends BasePainter {
     this.fontSize = 10,
     this.fontColor = defaultColor,
     this.rulerColor = defaultColor,
-  });
+    this.pressedStart,
+    this.pressedMove,
+  }) {
+    if (pressedStart != null) {
+      onLongPressStart(pressedStart());
+      print('long press start');
+    }
+    if (pressedMove != null) {
+      onLongPressMoveUpdate(pressedMove());
+      print('long press move');
+    }
+    if (pressedStart == null && pressedMove == null) {
+      onLongPressUp();
+      print('long press up');
+    }
+  }
 
   @override
   void paint(Canvas canvas, Size size) {
-    init(size);
-
-    drawXy(canvas, size); //坐标轴
-    drawLine(canvas, size); //曲线或折线
+    _init(size);
+    _drawXy(canvas, size); //坐标轴
+    _drawLine(canvas, size); //曲线或折线
+    _drawOnPressed(canvas, size); //绘制触摸
   }
 
   @override
   bool shouldRepaint(ChartLinePainter oldDelegate) {
-    return oldDelegate.value != value;
+    _isAnimationEnd = oldDelegate.value == value;
+    return oldDelegate.value != value || _isPressed;
   }
 
   ///初始化
-  void init(Size size) {
+  void _init(Size size) {
     initValue();
     initBorder(size);
     initPath(size);
@@ -101,13 +125,12 @@ class ChartLinePainter extends BasePainter {
 
   ///计算边界
   void initBorder(Size size) {
-    this.size = size;
     startX = yNum > 0 ? basePadding * 2.5 : basePadding * 2; //预留出y轴刻度值所占的空间
     endX = size.width - basePadding * 2;
     startY = size.height - (isShowXyRuler ? basePadding * 3 : basePadding);
     endY = basePadding * 2;
-    fixedHeight = startY - endY;
-    fixedWidth = endX - startX;
+    _fixedHeight = startY - endY;
+    _fixedWidth = endX - startX;
     maxMin = calculateMaxMin(chartBeans);
   }
 
@@ -118,18 +141,21 @@ class ChartLinePainter extends BasePainter {
         path = Path();
         double preX, preY, currentX, currentY;
         int length = chartBeans.length > 7 ? 7 : chartBeans.length;
-        double W = fixedWidth / (length - 1); //两个点之间的x方向距离
+        double W = _fixedWidth / (length - 1); //两个点之间的x方向距离
         for (int i = 0; i < length; i++) {
           if (i == 0) {
-            path.moveTo(
-                startX, (startY - chartBeans[i].y / maxMin[0] * fixedHeight));
+            var key = startX;
+            var value = (startY - chartBeans[i].y / maxMin[0] * _fixedHeight);
+            path.moveTo(key, value);
+            _points[key] = Offset(key, value);
             continue;
           }
           currentX = startX + W * i;
           preX = startX + W * (i - 1);
 
-          preY = (startY - chartBeans[i - 1].y / maxMin[0] * fixedHeight);
-          currentY = (startY - chartBeans[i].y / maxMin[0] * fixedHeight);
+          preY = (startY - chartBeans[i - 1].y / maxMin[0] * _fixedHeight);
+          currentY = (startY - chartBeans[i].y / maxMin[0] * _fixedHeight);
+          _points[currentX] = Offset(currentX, currentY);
 
           if (isCurve) {
             path.cubicTo((preX + currentX) / 2, preY, (preX + currentX) / 2,
@@ -143,7 +169,7 @@ class ChartLinePainter extends BasePainter {
   }
 
   ///x,y轴
-  void drawXy(Canvas canvas, Size size) {
+  void _drawXy(Canvas canvas, Size size) {
     if (!isShowXy && !isShowXyRuler) return;
     var paint = Paint()
       ..isAntiAlias = true
@@ -175,8 +201,8 @@ class ChartLinePainter extends BasePainter {
     if (!isShowXyRuler) return;
     if (chartBeans != null && chartBeans.length > 0) {
       int length = chartBeans.length > 7 ? 7 : chartBeans.length; //最多绘制7个
-      double dw = fixedWidth / (length - 1); //两个点之间的x方向距离
-      double dh = fixedHeight / (length - 1); //两个点之间的y方向距离
+      double dw = _fixedWidth / (length - 1); //两个点之间的x方向距离
+      double dh = _fixedHeight / (length - 1); //两个点之间的y方向距离
       for (int i = 0; i < length; i++) {
         ///绘制x轴文本
         TextPainter(
@@ -209,7 +235,7 @@ class ChartLinePainter extends BasePainter {
       }
       int yLength = yNum + 1; //包含原点,所以 +1
       double dValue = maxMin[0] / yNum; //一段对应的值
-      double dV = fixedHeight / yNum; //一段对应的高度
+      double dV = _fixedHeight / yNum; //一段对应的高度
       for (int i = 0; i < yLength; i++) {
         ///绘制y轴文本，保留1位小数
         var yValue = (dValue * i).toStringAsFixed(isShowFloat ? 1 : 0);
@@ -232,7 +258,7 @@ class ChartLinePainter extends BasePainter {
   }
 
   ///曲线或折线
-  void drawLine(Canvas canvas, Size size) {
+  void _drawLine(Canvas canvas, Size size) {
     if (chartBeans == null || chartBeans.length == 0) return;
     var paint = Paint()
       ..isAntiAlias = true
@@ -263,22 +289,104 @@ class ChartLinePainter extends BasePainter {
               colors: shaderColors)
           .createShader(Rect.fromLTRB(startX, endY, startX, startY));
 
-      ///既然是阴影层，所以画笔的样式必须是填充状态
-      Paint shadowPaint = new Paint();
-      shadowPaint
-        ..shader = shader
-        ..isAntiAlias = true
-        ..style = PaintingStyle.fill;
-
       ///从path的最后一个点连接起始点，形成一个闭环
       shadowPath
-        ..lineTo(startX + fixedWidth * value, startY)
+        ..lineTo(startX + _fixedWidth * value, startY)
         ..lineTo(startX, startY)
         ..close();
-      canvas..drawPath(shadowPath, shadowPaint);
+
+      canvas
+        ..drawPath(
+            shadowPath,
+            new Paint()
+              ..shader = shader
+              ..isAntiAlias = true
+              ..style = PaintingStyle.fill);
     }
 
     ///先画阴影再画曲线，目的是防止阴影覆盖曲线
     canvas.drawPath(linePath, paint);
+  }
+
+  ///绘制触摸
+  void _drawOnPressed(Canvas canvas, Size size) {
+    if (!_isAnimationEnd) return;
+    if (!_isPressed) return;
+    if (chartBeans == null || chartBeans.length == 0 || maxMin[0] <= 0) return;
+    try {
+      Offset pointer = _longPressStartDetails != null
+          ? _longPressStartDetails.globalPosition
+          : _longPressMoveUpdateDetails.globalPosition;
+
+      ///修复x轴越界
+      if (pointer.dx < startX) pointer = Offset(startX, pointer.dy);
+      if (pointer.dx > endX) pointer = Offset(endX, pointer.dy);
+
+      double currentX, currentY;
+      int length = chartBeans.length > 7 ? 7 : chartBeans.length;
+      double W = _fixedWidth / (length - 1); //两个点之间的x方向距离
+      for (int i = 0; i < length; i++) {
+        currentX = startX + W * i;
+        currentY = chartBeans[i].y;
+        if (currentX - W / 2 <= pointer.dx && pointer.dx <= currentX + W / 2) {
+          pointer = _points[currentX];
+          break;
+        }
+      }
+
+      var hintLinePaint = new Paint()
+        ..color = Colors.white
+        ..isAntiAlias = true
+        ..strokeWidth = 1;
+      double radius = 4;
+      canvas
+        ..drawCircle(pointer, radius, hintLinePaint..strokeWidth = radius)
+        ..drawLine(Offset(startX, pointer.dy), Offset(endX, pointer.dy),
+            hintLinePaint..strokeWidth = 0.5)
+        ..drawLine(
+            Offset(pointer.dx, startY),
+            Offset(pointer.dx, endY - basePadding),
+            hintLinePaint..strokeWidth = 0.5);
+
+      ///绘制文本
+      var yValue = currentY.toStringAsFixed(isShowFloat ? 1 : 0);
+      TextPainter(
+          textAlign: TextAlign.center,
+          ellipsis: '.',
+          maxLines: 1,
+          text: TextSpan(
+              text: "$yValue",
+              style: TextStyle(color: fontColor, fontSize: fontSize)),
+          textDirection: TextDirection.ltr)
+        ..layout(minWidth: 40, maxWidth: 40)
+        ..paint(
+            canvas,
+            Offset(
+                pointer.dx,
+                startY - pointer.dy < basePadding * 2
+                    ? pointer.dy - basePadding
+                    : pointer.dy + radius * 2));
+    } catch (e) {
+      print(e.toString());
+    }
+  }
+
+  ///手指长按移动位置更新回调
+  void onLongPressMoveUpdate(LongPressMoveUpdateDetails _moveUpdateDetails) {
+    _isPressed = true;
+    this._longPressMoveUpdateDetails = _moveUpdateDetails;
+  }
+
+  ///手指长按开始
+  void onLongPressStart(LongPressStartDetails _longPressStartDetails) {
+    _isPressed = true;
+    this._longPressStartDetails = _longPressStartDetails;
+  }
+
+  ///手指长按结束
+  void onLongPressUp() {
+    _isPressed = false;
+    this._longPressMoveUpdateDetails = null;
+    this._longPressStartDetails = null;
   }
 }

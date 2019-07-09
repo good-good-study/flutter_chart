@@ -27,6 +27,7 @@ class ChartLine extends StatefulWidget {
   final Duration duration; //动画时长
   final bool isAnimation; //是否执行动画
   final bool isCycle; //是否重复执行动画
+  final bool isCanTouch; //是否可以触摸
 
   const ChartLine({
     Key key,
@@ -54,6 +55,7 @@ class ChartLine extends StatefulWidget {
     this.duration = const Duration(milliseconds: 800),
     this.isAnimation = true,
     this.isCycle = false,
+    this.isCanTouch = false,
   })  : assert(lineColor != null),
         assert(size != null),
         super(key: key);
@@ -66,6 +68,8 @@ class ChartLineState extends State<ChartLine>
     with SingleTickerProviderStateMixin {
   AnimationController _controller;
   double _value = 0;
+  LongPressStartDetails _longPressStartDetails;
+  LongPressMoveUpdateDetails _longPressMoveUpdateDetails;
 
   @override
   void initState() {
@@ -100,39 +104,76 @@ class ChartLineState extends State<ChartLine>
 
   @override
   Widget build(BuildContext context) {
-    var painter = ChartLinePainter(
-      widget.chartBeans,
-      widget.lineColor,
-      shaderColors: widget.shaderColors,
-      isCurve: widget.isCurve,
-      lineWidth: widget.lineWidth,
-      fontSize: widget.fontSize,
-      fontColor: widget.fontColor,
-      rulerColor: widget.rulerColor,
-      xyColor: widget.xyColor,
-      yNum: widget.yNum,
-      isShowFloat: widget.isShowFloat,
-      isShowXy: widget.isShowXy,
-      isShowYValue: widget.isShowYValue,
-      isShowXyRuler: widget.isShowXyRuler,
-      isShowHintX: widget.isShowHintX,
-      isShowHintY: widget.isShowHintY,
-      isShowBorderTop: widget.isShowBorderTop,
-      isShowBorderRight: widget.isShowBorderRight,
-      rulerWidth: widget.rulerWidth,
-      value: widget.isAnimation ? _value : 1,
-    );
-    return CustomPaint(
-      size: widget.size,
-      painter: widget.backgroundColor == null ? painter : null,
-      foregroundPainter: widget.backgroundColor != null ? painter : null,
-      child: widget.backgroundColor != null
-          ? Container(
-              width: widget.size.width,
-              height: widget.size.height,
-              color: widget.backgroundColor,
-            )
-          : null,
-    );
+    var painter = ChartLinePainter(widget.chartBeans, widget.lineColor,
+        shaderColors: widget.shaderColors,
+        isCurve: widget.isCurve,
+        lineWidth: widget.lineWidth,
+        fontSize: widget.fontSize,
+        fontColor: widget.fontColor,
+        rulerColor: widget.rulerColor,
+        xyColor: widget.xyColor,
+        yNum: widget.yNum,
+        isShowFloat: widget.isShowFloat,
+        isShowXy: widget.isShowXy,
+        isShowYValue: widget.isShowYValue,
+        isShowXyRuler: widget.isShowXyRuler,
+        isShowHintX: widget.isShowHintX,
+        isShowHintY: widget.isShowHintY,
+        isShowBorderTop: widget.isShowBorderTop,
+        isShowBorderRight: widget.isShowBorderRight,
+        rulerWidth: widget.rulerWidth,
+        value: widget.isAnimation ? _value : 1,
+        pressedStart: () => _longPressStartDetails,
+        pressedMove: () => _longPressMoveUpdateDetails);
+
+    if (widget.isCanTouch) {
+      return GestureDetector(
+        onLongPressStart: (details) {
+          setState(() {
+            _longPressStartDetails = details;
+            _longPressMoveUpdateDetails = null;
+          });
+        },
+        onLongPressMoveUpdate: (details) {
+          setState(() {
+            _longPressStartDetails = null;
+            _longPressMoveUpdateDetails = details;
+          });
+        },
+        onLongPressUp: () async {
+          await Future.delayed(Duration(milliseconds: 800)).then((_) {
+            setState(() {
+              _longPressStartDetails = null;
+              _longPressMoveUpdateDetails = null;
+            });
+          });
+        },
+        child: CustomPaint(
+          size: widget.size,
+          painter: widget.backgroundColor == null ? painter : null,
+          foregroundPainter: widget.backgroundColor != null ? painter : null,
+          child: widget.backgroundColor != null
+              ? Container(
+                  width: widget.size.width,
+                  height: widget.size.height,
+                  color: widget.backgroundColor,
+                )
+              : null,
+        ),
+      );
+    } else {
+      return CustomPaint(
+        size: widget.size,
+        painter: widget.backgroundColor == null ? painter : null,
+        foregroundPainter: widget.backgroundColor != null ? painter : null,
+        child: widget.backgroundColor != null
+            ? Container(
+                width: widget.size.width,
+                height: widget.size.height,
+                color: widget.backgroundColor,
+              )
+            : null,
+      );
+    }
   }
 }

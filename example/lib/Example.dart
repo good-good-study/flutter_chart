@@ -9,7 +9,11 @@ class Example extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: ExampleChart(),
+      home: AnnotatedRegion(
+        value: SystemUiOverlayStyle.light
+            .copyWith(statusBarBrightness: Brightness.dark),
+        child: ExampleChart(),
+      ),
     );
   }
 }
@@ -17,39 +21,23 @@ class Example extends StatelessWidget {
 class ExampleChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return AnnotatedRegion(
-      value: SystemUiOverlayStyle.dark
-          .copyWith(statusBarColor: Colors.black..withOpacity(0)),
-      child: Scaffold(
-        body: Container(
-          color: Colors.white,
-          child: ListView(
-            physics: BouncingScrollPhysics(),
-            children: <Widget>[
-              AnnotatedRegion(
-                value: SystemUiOverlayStyle.light
-                    .copyWith(statusBarBrightness: Brightness.dark),
-                child: Column(
-                  children: <Widget>[
-                    SizedBox(
-                      height: 8,
-                    ),
-                    _buildChartLine(context),
-                    SizedBox(
-                      height: 8,
-                    ),
-                    _buildChartBar(context),
-                    SizedBox(
-                      height: 8,
-                    ),
-                    _buildChartPie(context),
-                  ],
-                ),
-              )
-            ],
-          ),
-        ),
-      ),
+    return ListView(
+      physics: BouncingScrollPhysics(),
+      children: <Widget>[
+        Column(
+          children: <Widget>[
+            _buildChartLine(context),
+            SizedBox(
+              height: 8,
+            ),
+            _buildChartBar(context),
+            SizedBox(
+              height: 8,
+            ),
+            _buildChartPie(context),
+          ],
+        )
+      ],
     );
   }
 
@@ -68,7 +56,7 @@ class ExampleChart extends StatelessWidget {
       size: Size(MediaQuery.of(context).size.width,
           MediaQuery.of(context).size.height / 5 * 1.6),
       isCurve: true,
-      lineWidth: 6,
+      lineWidth: 4,
       lineColor: Colors.deepPurple,
       fontColor: Colors.white,
       xyColor: Colors.white,
@@ -80,6 +68,8 @@ class ExampleChart extends StatelessWidget {
       yNum: 8,
       backgroundColor: Colors.black,
       isAnimation: true,
+      isCycle: false,
+      isCanTouch: true,
       duration: Duration(milliseconds: 2000),
     );
 
@@ -123,7 +113,7 @@ class ExampleChart extends StatelessWidget {
       R: MediaQuery.of(context).size.width / 3,
       centerR: 6,
       duration: Duration(milliseconds: 3000),
-      isCycle: true,
+      isCycle: false,
       centerColor: Colors.white,
       fontColor: Colors.white,
     );
