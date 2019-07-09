@@ -237,12 +237,6 @@ class ChartLinePainter extends BasePainter {
     var paint = Paint()
       ..isAntiAlias = true
       ..strokeWidth = lineWidth
-      ..shader = shaderColors == null
-          ? null
-          : LinearGradient(tileMode: TileMode.clamp, colors: shaderColors)
-              .createShader(Rect.fromLTRB(startX, endY, endX, startY))
-//          .createShader(Rect.fromLTWH(startX,startY,width,height))
-//          .createShader(Rect.fromPoints(Offset(startX, endY), Offset(startX, startY)))
       ..strokeCap = StrokeCap.round
       ..color = lineColor
       ..style = PaintingStyle.stroke;
@@ -251,12 +245,40 @@ class ChartLinePainter extends BasePainter {
     var pathMetrics = path.computeMetrics(forceClosed: false);
     var list = pathMetrics.toList();
     var length = value * list.length.toInt();
-    Path newPath = new Path();
+    Path linePath = new Path();
+    Path shadowPath = new Path();
     for (int i = 0; i < length; i++) {
       var extractPath =
           list[i].extractPath(0, list[i].length * value, startWithMoveTo: true);
-      newPath.addPath(extractPath, Offset(0, 0));
+      linePath.addPath(extractPath, Offset(0, 0));
+      shadowPath = extractPath;
     }
-    canvas.drawPath(newPath, paint);
+
+    ///画阴影,注意LinearGradient这里需要指定方向，默认为从左到右
+    if (shaderColors != null) {
+      var shader = LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              tileMode: TileMode.clamp,
+              colors: shaderColors)
+          .createShader(Rect.fromLTRB(startX, endY, startX, startY));
+
+      ///既然是阴影层，所以画笔的样式必须是填充状态
+      Paint shadowPaint = new Paint();
+      shadowPaint
+        ..shader = shader
+        ..isAntiAlias = true
+        ..style = PaintingStyle.fill;
+
+      ///从path的最后一个点连接起始点，形成一个闭环
+      shadowPath
+        ..lineTo(startX + fixedWidth * value, startY)
+        ..lineTo(startX, startY)
+        ..close();
+      canvas..drawPath(shadowPath, shadowPaint);
+    }
+
+    ///先画阴影再画曲线，目的是防止阴影覆盖曲线
+    canvas.drawPath(linePath, paint);
   }
 }

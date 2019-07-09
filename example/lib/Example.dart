@@ -72,12 +72,15 @@ class ExampleChart extends StatelessWidget {
       lineColor: Colors.deepPurple,
       fontColor: Colors.white,
       xyColor: Colors.white,
-      shaderColors: [Colors.yellow, Colors.lightGreenAccent, Colors.blue],
+      shaderColors: [
+        Colors.deepPurple.withOpacity(0.5),
+        Colors.deepPurple.withOpacity(0.2)
+      ],
       fontSize: 12,
       yNum: 8,
       backgroundColor: Colors.black,
       isAnimation: true,
-      duration: Duration(milliseconds: 3000),
+      duration: Duration(milliseconds: 2000),
     );
 
     return chartLine;
@@ -117,7 +120,7 @@ class ExampleChart extends StatelessWidget {
       size: Size(
           MediaQuery.of(context).size.width, MediaQuery.of(context).size.width),
       backgroundColor: Colors.black,
-      R: MediaQuery.of(context).size.width /3,
+      R: MediaQuery.of(context).size.width / 3,
       centerR: 6,
       duration: Duration(milliseconds: 3000),
       isCycle: true,
