@@ -45,23 +45,22 @@ class ChartBarState extends State<ChartBar>
     super.initState();
     if (widget.isAnimation) {
       _controller = AnimationController(vsync: this, duration: widget.duration);
-      Tween(begin: 0.0, end: 1.0)
-          .animate(_controller)
-            ..addStatusListener((status) {
-              if (status == AnimationStatus.completed) {
-                print('绘制完成');
-                if (widget.isCycle) {
-                  setState(() {
-                    _value = 0;
-                  });
-                  _controller.forward(from: 0.0);
-                }
-              }
-            })
-            ..addListener(() {
-              _value = _controller.value;
-              setState(() {});
-            });
+      Tween(begin: 0.0, end: 1.0).animate(_controller)
+        ..addStatusListener((status) {
+          if (status == AnimationStatus.completed) {
+            print('绘制完成');
+            if (widget.isCycle) {
+              setState(() {
+                _value = 0;
+              });
+              _controller.forward(from: 0.0);
+            }
+          }
+        })
+        ..addListener(() {
+          _value = _controller.value;
+          setState(() {});
+        });
       _controller.forward();
     }
   }

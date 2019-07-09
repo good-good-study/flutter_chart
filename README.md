@@ -5,7 +5,7 @@
 # 怎么使用？
 
 - 添加依赖
-   flutter_chart: ^0.1.3
+   flutter_chart: ^0.1.4
 
 ## 我的博客
 
