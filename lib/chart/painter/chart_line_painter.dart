@@ -18,26 +18,25 @@ class ChartLinePainter extends BasePainter {
   bool isShowXyRuler; //是否显示xy刻度
   bool isShowHintX, isShowHintY; //x、y轴的辅助线
   bool isShowBorderTop, isShowBorderRight; //顶部和右侧的辅助线
+  bool isShowPressedHintLine; //触摸时是否显示辅助线
+  double pressedPointRadius; //触摸点半径
+  double pressedHintLineWidth; //触摸辅助线宽度
+  Color pressedHintLineColor; //触摸辅助线颜色
   int yNum; //y轴的值数量,默认为5个
   bool isShowFloat; //y轴的值是否显示小数
   double fontSize;
   Color fontColor;
   double lineWidth; //线宽
   double rulerWidth; //刻度的宽度或者高度
-  Color rulerColor; //刻度的颜色
   double startX, endX, startY, endY;
   double _fixedHeight, _fixedWidth; //宽高
   Path path;
   Map<double, Offset> _points = new Map();
 
   bool _isAnimationEnd = false;
-  bool _isPressed = false;
-  LongPressMoveUpdateDetails _longPressMoveUpdateDetails;
-  LongPressStartDetails _longPressStartDetails;
+  bool isCanTouch;
 
-  LongPressMoveUpdateDetails Function() pressedMove;
-  LongPressStartDetails Function() pressedStart;
-
+  Offset globalPosition;
   static const Color defaultColor = Colors.deepPurple;
 
   ChartLinePainter(
@@ -47,7 +46,7 @@ class ChartLinePainter extends BasePainter {
     this.value = 1,
     this.isCurve = true,
     this.isShowXy = true,
-    this.isShowYValue = false,
+    this.isShowYValue = true,
     this.isShowXyRuler = true,
     this.isShowHintX = false,
     this.isShowHintY = false,
@@ -60,23 +59,13 @@ class ChartLinePainter extends BasePainter {
     this.isShowFloat = false,
     this.fontSize = 10,
     this.fontColor = defaultColor,
-    this.rulerColor = defaultColor,
-    this.pressedStart,
-    this.pressedMove,
-  }) {
-    if (pressedStart != null) {
-      onLongPressStart(pressedStart());
-      print('long press start');
-    }
-    if (pressedMove != null) {
-      onLongPressMoveUpdate(pressedMove());
-      print('long press move');
-    }
-    if (pressedStart == null && pressedMove == null) {
-      onLongPressUp();
-      print('long press up');
-    }
-  }
+    this.isCanTouch = false,
+    this.globalPosition,
+    this.isShowPressedHintLine = true,
+    this.pressedPointRadius = 4,
+    this.pressedHintLineWidth = 0.5,
+    this.pressedHintLineColor = defaultColor,
+  });
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -89,7 +78,7 @@ class ChartLinePainter extends BasePainter {
   @override
   bool shouldRepaint(ChartLinePainter oldDelegate) {
     _isAnimationEnd = oldDelegate.value == value;
-    return oldDelegate.value != value || _isPressed;
+    return oldDelegate.value != value || isCanTouch;
   }
 
   ///初始化
@@ -106,14 +95,14 @@ class ChartLinePainter extends BasePainter {
     if (xyColor == null) {
       xyColor = defaultColor;
     }
-    if (rulerColor == null) {
-      rulerColor = defaultColor;
-    }
     if (fontColor == null) {
       fontColor = defaultColor;
     }
     if (fontSize == null) {
       fontSize = 10;
+    }
+    if (pressedHintLineColor == null) {
+      pressedHintLineColor = defaultColor;
     }
     if (yNum == null) {
       yNum = 5;
@@ -127,7 +116,7 @@ class ChartLinePainter extends BasePainter {
   void initBorder(Size size) {
     startX = yNum > 0 ? basePadding * 2.5 : basePadding * 2; //预留出y轴刻度值所占的空间
     endX = size.width - basePadding * 2;
-    startY = size.height - (isShowXyRuler ? basePadding * 3 : basePadding);
+    startY = size.height - (isShowXyRuler ? basePadding * 3 : basePadding * 2);
     endY = basePadding * 2;
     _fixedHeight = startY - endY;
     _fixedWidth = endX - startX;
@@ -182,23 +171,22 @@ class ChartLinePainter extends BasePainter {
           Offset(endX + basePadding, startY), paint); //x轴
       canvas.drawLine(Offset(startX, startY),
           Offset(startX, endY - basePadding), paint); //y轴
-      if (isShowBorderTop) {
-        ///最顶部水平边界线
-        canvas.drawLine(Offset(startX, endY - basePadding),
-            Offset(endX + basePadding, endY - basePadding), paint);
-      }
-      if (isShowBorderRight) {
-        ///最右侧垂直边界线
-        canvas.drawLine(Offset(endX + basePadding, startY),
-            Offset(endX + basePadding, endY - basePadding), paint);
-      }
+    }
+    if (isShowBorderTop) {
+      ///最顶部水平边界线
+      canvas.drawLine(Offset(startX, endY - basePadding),
+          Offset(endX + basePadding, endY - basePadding), paint);
+    }
+    if (isShowBorderRight) {
+      ///最右侧垂直边界线
+      canvas.drawLine(Offset(endX + basePadding, startY),
+          Offset(endX + basePadding, endY - basePadding), paint);
     }
     drawRuler(canvas, paint); //刻度
   }
 
   ///x,y轴刻度 & 辅助线
   void drawRuler(Canvas canvas, Paint paint) {
-    if (!isShowXyRuler) return;
     if (chartBeans != null && chartBeans.length > 0) {
       int length = chartBeans.length > 7 ? 7 : chartBeans.length; //最多绘制7个
       double dw = _fixedWidth / (length - 1); //两个点之间的x方向距离
@@ -229,6 +217,8 @@ class ChartLinePainter extends BasePainter {
               Offset(startX + dw * i, endY - basePadding), paint);
         }
 
+        if (!isShowXyRuler) continue;
+
         ///x轴刻度
         canvas.drawLine(Offset(startX + dw * i, startY),
             Offset(startX + dw * i, startY - rulerWidth), paint);
@@ -237,18 +227,23 @@ class ChartLinePainter extends BasePainter {
       double dValue = maxMin[0] / yNum; //一段对应的值
       double dV = _fixedHeight / yNum; //一段对应的高度
       for (int i = 0; i < yLength; i++) {
-        ///绘制y轴文本，保留1位小数
-        var yValue = (dValue * i).toStringAsFixed(isShowFloat ? 1 : 0);
-        TextPainter(
-            textAlign: TextAlign.center,
-            ellipsis: '.',
-            maxLines: 1,
-            text: TextSpan(
-                text: '$yValue',
-                style: TextStyle(color: fontColor, fontSize: fontSize)),
-            textDirection: TextDirection.rtl)
-          ..layout(minWidth: 40, maxWidth: 40)
-          ..paint(canvas, Offset(startX - 40, startY - dV * i - fontSize / 2));
+        if (isShowYValue) {
+          ///绘制y轴文本，保留1位小数
+          var yValue = (dValue * i).toStringAsFixed(isShowFloat ? 1 : 0);
+          TextPainter(
+              textAlign: TextAlign.center,
+              ellipsis: '.',
+              maxLines: 1,
+              text: TextSpan(
+                  text: '$yValue',
+                  style: TextStyle(color: fontColor, fontSize: fontSize)),
+              textDirection: TextDirection.rtl)
+            ..layout(minWidth: 40, maxWidth: 40)
+            ..paint(
+                canvas, Offset(startX - 40, startY - dV * i - fontSize / 2));
+        }
+
+        if (!isShowXyRuler) continue;
 
         ///y轴刻度
         canvas.drawLine(Offset(startX, startY - dV * (i)),
@@ -310,13 +305,12 @@ class ChartLinePainter extends BasePainter {
 
   ///绘制触摸
   void _drawOnPressed(Canvas canvas, Size size) {
+    print('globalPosition == $globalPosition');
     if (!_isAnimationEnd) return;
-    if (!_isPressed) return;
+    if (globalPosition == null) return;
     if (chartBeans == null || chartBeans.length == 0 || maxMin[0] <= 0) return;
     try {
-      Offset pointer = _longPressStartDetails != null
-          ? _longPressStartDetails.globalPosition
-          : _longPressMoveUpdateDetails.globalPosition;
+      Offset pointer = globalPosition;
 
       ///修复x轴越界
       if (pointer.dx < startX) pointer = Offset(startX, pointer.dy);
@@ -335,18 +329,22 @@ class ChartLinePainter extends BasePainter {
       }
 
       var hintLinePaint = new Paint()
-        ..color = Colors.white
-        ..isAntiAlias = true
-        ..strokeWidth = 1;
-      double radius = 4;
+        ..color = pressedHintLineColor
+        ..isAntiAlias = true;
       canvas
-        ..drawCircle(pointer, radius, hintLinePaint..strokeWidth = radius)
-        ..drawLine(Offset(startX, pointer.dy), Offset(endX, pointer.dy),
-            hintLinePaint..strokeWidth = 0.5)
-        ..drawLine(
-            Offset(pointer.dx, startY),
-            Offset(pointer.dx, endY - basePadding),
-            hintLinePaint..strokeWidth = 0.5);
+        ..drawCircle(pointer, pressedPointRadius,
+            hintLinePaint..strokeWidth = pressedPointRadius);
+      if (isShowPressedHintLine) {
+        canvas
+          ..drawLine(
+              Offset(startX, pointer.dy),
+              Offset(endX + basePadding, pointer.dy),
+              hintLinePaint..strokeWidth = pressedHintLineWidth)
+          ..drawLine(
+              Offset(pointer.dx, startY),
+              Offset(pointer.dx, endY - basePadding),
+              hintLinePaint..strokeWidth = pressedHintLineWidth);
+      }
 
       ///绘制文本
       var yValue = currentY.toStringAsFixed(isShowFloat ? 1 : 0);
@@ -365,28 +363,9 @@ class ChartLinePainter extends BasePainter {
                 pointer.dx,
                 startY - pointer.dy < basePadding * 2
                     ? pointer.dy - basePadding
-                    : pointer.dy + radius * 2));
+                    : pointer.dy + pressedPointRadius * 2));
     } catch (e) {
       print(e.toString());
     }
-  }
-
-  ///手指长按移动位置更新回调
-  void onLongPressMoveUpdate(LongPressMoveUpdateDetails _moveUpdateDetails) {
-    _isPressed = true;
-    this._longPressMoveUpdateDetails = _moveUpdateDetails;
-  }
-
-  ///手指长按开始
-  void onLongPressStart(LongPressStartDetails _longPressStartDetails) {
-    _isPressed = true;
-    this._longPressStartDetails = _longPressStartDetails;
-  }
-
-  ///手指长按结束
-  void onLongPressUp() {
-    _isPressed = false;
-    this._longPressMoveUpdateDetails = null;
-    this._longPressStartDetails = null;
   }
 }

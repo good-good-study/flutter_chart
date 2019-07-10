@@ -23,11 +23,14 @@ class ChartLine extends StatefulWidget {
   final double fontSize; //刻度文本大小
   final Color fontColor; //文本颜色
   final double rulerWidth; //刻度的宽度或者高度
-  final Color rulerColor; //刻度的颜色
   final Duration duration; //动画时长
   final bool isAnimation; //是否执行动画
   final bool isCycle; //是否重复执行动画
   final bool isCanTouch; //是否可以触摸
+  final bool isShowPressedHintLine; //触摸时是否显示辅助线
+  final double pressedPointRadius; //触摸点半径
+  final double pressedHintLineWidth; //触摸辅助线宽度
+  final Color pressedHintLineColor; //触摸辅助线颜色
 
   const ChartLine({
     Key key,
@@ -50,12 +53,15 @@ class ChartLine extends StatefulWidget {
     this.isShowFloat,
     this.fontSize,
     this.fontColor,
-    this.rulerColor,
     this.rulerWidth = 8,
     this.duration = const Duration(milliseconds: 800),
     this.isAnimation = true,
     this.isCycle = false,
     this.isCanTouch = false,
+    this.isShowPressedHintLine = true,
+    this.pressedPointRadius = 4,
+    this.pressedHintLineWidth = 0.5,
+    this.pressedHintLineColor,
   })  : assert(lineColor != null),
         assert(size != null),
         super(key: key);
@@ -68,8 +74,7 @@ class ChartLineState extends State<ChartLine>
     with SingleTickerProviderStateMixin {
   AnimationController _controller;
   double _value = 0;
-  LongPressStartDetails _longPressStartDetails;
-  LongPressMoveUpdateDetails _longPressMoveUpdateDetails;
+  Offset globalPosition;
 
   @override
   void initState() {
@@ -110,7 +115,6 @@ class ChartLineState extends State<ChartLine>
         lineWidth: widget.lineWidth,
         fontSize: widget.fontSize,
         fontColor: widget.fontColor,
-        rulerColor: widget.rulerColor,
         xyColor: widget.xyColor,
         yNum: widget.yNum,
         isShowFloat: widget.isShowFloat,
@@ -122,29 +126,30 @@ class ChartLineState extends State<ChartLine>
         isShowBorderTop: widget.isShowBorderTop,
         isShowBorderRight: widget.isShowBorderRight,
         rulerWidth: widget.rulerWidth,
+        isShowPressedHintLine: widget.isShowPressedHintLine,
+        pressedHintLineColor: widget.pressedHintLineColor,
+        pressedHintLineWidth: widget.pressedHintLineWidth,
+        pressedPointRadius: widget.pressedPointRadius,
         value: widget.isAnimation ? _value : 1,
-        pressedStart: () => _longPressStartDetails,
-        pressedMove: () => _longPressMoveUpdateDetails);
+        isCanTouch: widget.isCanTouch,
+        globalPosition: globalPosition);
 
     if (widget.isCanTouch) {
       return GestureDetector(
         onLongPressStart: (details) {
           setState(() {
-            _longPressStartDetails = details;
-            _longPressMoveUpdateDetails = null;
+            globalPosition = details.globalPosition;
           });
         },
         onLongPressMoveUpdate: (details) {
           setState(() {
-            _longPressStartDetails = null;
-            _longPressMoveUpdateDetails = details;
+            globalPosition = details.globalPosition;
           });
         },
         onLongPressUp: () async {
           await Future.delayed(Duration(milliseconds: 800)).then((_) {
             setState(() {
-              _longPressStartDetails = null;
-              _longPressMoveUpdateDetails = null;
+              globalPosition = null;
             });
           });
         },

@@ -47,11 +47,11 @@ class ExampleChart extends StatelessWidget {
       chartBeans: [
         ChartBean(x: '12-01', y: 30),
         ChartBean(x: '12-02', y: 88),
-        ChartBean(x: '12-06', y: 20),
-        ChartBean(x: '12-06', y: 67),
-        ChartBean(x: '12-06', y: 10),
+        ChartBean(x: '12-03', y: 20),
+        ChartBean(x: '12-04', y: 67),
+        ChartBean(x: '12-05', y: 10),
         ChartBean(x: '12-06', y: 40),
-        ChartBean(x: '12-06', y: 10),
+        ChartBean(x: '12-07', y: 10),
       ],
       size: Size(MediaQuery.of(context).size.width,
           MediaQuery.of(context).size.height / 5 * 1.6),
@@ -70,9 +70,12 @@ class ExampleChart extends StatelessWidget {
       isAnimation: true,
       isCycle: false,
       isCanTouch: true,
+      isShowPressedHintLine: true,
+      pressedPointRadius: 4,
+      pressedHintLineWidth: 0.5,
+      pressedHintLineColor: Colors.white,
       duration: Duration(milliseconds: 2000),
     );
-
     return chartLine;
   }
 
