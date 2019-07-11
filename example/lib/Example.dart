@@ -25,19 +25,9 @@ class ExampleChart extends StatelessWidget {
     return ListView(
       physics: BouncingScrollPhysics(),
       children: <Widget>[
-        Column(
-          children: <Widget>[
-            _buildChartLine(context),
-            SizedBox(
-              height: 8,
-            ),
-            _buildChartBar(context),
-            SizedBox(
-              height: 8,
-            ),
-            _buildChartPie(context),
-          ],
-        )
+        _buildChartLine(context),
+        _buildChartBar(context),
+        _buildChartPie(context),
       ],
     );
   }
@@ -67,7 +57,6 @@ class ExampleChart extends StatelessWidget {
       ],
       fontSize: 12,
       yNum: 8,
-      backgroundColor: Colors.black,
       isAnimation: true,
       isReverse: false,
       isCanTouch: true,
@@ -77,12 +66,19 @@ class ExampleChart extends StatelessWidget {
       pressedHintLineColor: Colors.white,
       duration: Duration(milliseconds: 2000),
     );
-    return chartLine;
+    return Card(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      margin: EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
+      semanticContainer: true,
+      color: Colors.indigoAccent.withOpacity(0.3),
+      child: chartLine,
+      clipBehavior: Clip.antiAlias,
+    );
   }
 
   ///bar
-  ChartBar _buildChartBar(context) {
-    return ChartBar(
+  Widget _buildChartBar(context) {
+    var chartBar = ChartBar(
       chartBeans: [
         ChartBean(x: '12-01', y: 30, color: Colors.red),
         ChartBean(x: '12-02', y: 100, color: Colors.yellow),
@@ -95,7 +91,6 @@ class ExampleChart extends StatelessWidget {
       size: Size(MediaQuery.of(context).size.width,
           MediaQuery.of(context).size.height / 5 * 1.8),
       rectColor: Colors.deepPurple,
-      backgroundColor: Colors.black,
       isShowX: true,
       fontColor: Colors.white,
       rectShadowColor: Colors.white.withOpacity(0.5),
@@ -107,11 +102,19 @@ class ExampleChart extends StatelessWidget {
       rectRadiusTopRight: 50,
       duration: Duration(milliseconds: 1000),
     );
+    return Card(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      margin: EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
+      semanticContainer: true,
+      color: Colors.brown,
+      child: chartBar,
+      clipBehavior: Clip.antiAlias,
+    );
   }
 
   ///pie
-  ChartPie _buildChartPie(context) {
-    return ChartPie(
+  Widget _buildChartPie(context) {
+    var chartPie = ChartPie(
       chartBeans: [
         ChartPieBean(type: '话费', value: 30, color: Colors.blueGrey),
         ChartPieBean(type: '零食', value: 120, color: Colors.deepPurple),
@@ -121,12 +124,19 @@ class ExampleChart extends StatelessWidget {
       ],
       size: Size(
           MediaQuery.of(context).size.width, MediaQuery.of(context).size.width),
-      backgroundColor: Colors.black,
       R: MediaQuery.of(context).size.width / 3,
       centerR: 6,
       duration: Duration(milliseconds: 3000),
       centerColor: Colors.white,
       fontColor: Colors.white,
+    );
+    return Card(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      margin: EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
+      color: Colors.orangeAccent.withOpacity(0.8),
+      clipBehavior: Clip.antiAlias,
+      borderOnForeground: true,
+      child: chartPie,
     );
   }
 }

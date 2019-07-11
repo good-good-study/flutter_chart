@@ -7,14 +7,10 @@
   <component name="ChangeListManager">
     <list default="true" id="9d12650f-2e61-4730-9c04-bd2598ae0d91" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/example/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/lib/Example.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/Example.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/chart/painter/chart_bar_painter.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chart/painter/chart_bar_painter.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/chart/view/chart_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chart/view/chart_bar.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/chart/view/chart_line.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chart/view/chart_line.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/chart/view/chart_pie.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chart/view/chart_pie.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.yaml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,48 +24,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/example/lib/Example.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="81" selection-start-line="81" selection-end-line="81" />
+            <state relative-caret-position="279">
+              <caret line="120" column="29" selection-start-line="120" selection-start-column="29" selection-end-line="120" selection-end-column="29" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/CHANGELOG.md">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/chart/view/chart_bar.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pubspec.yaml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="29">
-              <caret line="1" column="159" selection-start-line="1" selection-start-column="159" selection-end-line="1" selection-end-column="159" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/chart/painter/chart_bar_painter.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2871">
-              <caret line="210" column="5" selection-start-line="210" selection-start-column="5" selection-end-line="210" selection-end-column="5" />
-              <folding>
-                <element signature="e#0#17#0" expanded="true" />
+                <element signature="e#3301#3573#0" />
+                <element signature="e#4260#4384#0" />
               </folding>
             </state>
           </provider>
@@ -99,15 +62,12 @@
         <option value="$PROJECT_DIR$/LICENSE" />
         <option value="$PROJECT_DIR$/lib/example/example.dart" />
         <option value="$PROJECT_DIR$/lib/example.dart" />
-        <option value="$PROJECT_DIR$/example/README.md" />
         <option value="$PROJECT_DIR$/example/test/widget_test.dart" />
         <option value="$PROJECT_DIR$/example/lib/main.dart" />
-        <option value="$PROJECT_DIR$/example/pubspec.yaml" />
         <option value="$PROJECT_DIR$/lib/chart/chart_pie_bean.dart" />
         <option value="$PROJECT_DIR$/../Chart/chart/src/main/java/com/sxt/library/chart/ChartPie.java" />
         <option value="$PROJECT_DIR$/lib/chart/painter/chart_pie_painter.dart" />
         <option value="$PROJECT_DIR$/lib/flutter_chart.dart" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/lib/chart/painter/base_painter.dart" />
         <option value="$PROJECT_DIR$/lib/chart/painter/chart_line_painter.dart" />
         <option value="$PROJECT_DIR$/lib/chart/painter/chart_bar_painter.dart" />
@@ -116,9 +76,12 @@
         <option value="$PROJECT_DIR$/example/android/app/build.gradle" />
         <option value="$PROJECT_DIR$/lib/chart/view/chart_line.dart" />
         <option value="$PROJECT_DIR$/lib/chart/view/chart_bar.dart" />
-        <option value="$PROJECT_DIR$/example/lib/Example.dart" />
         <option value="$PROJECT_DIR$/CHANGELOG.md" />
         <option value="$PROJECT_DIR$/pubspec.yaml" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/example/lib/Example.dart" />
+        <option value="$PROJECT_DIR$/example/README.md" />
+        <option value="$PROJECT_DIR$/example/pubspec.yaml" />
       </list>
     </option>
   </component>
@@ -138,7 +101,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -149,27 +111,15 @@
             <path>
               <item name="flutter_chart" type="b2602c69:ProjectViewProjectNode" />
               <item name="flutter_chart" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="flutter_chart" type="b2602c69:ProjectViewProjectNode" />
-              <item name="flutter_chart" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="chart" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="flutter_chart" type="b2602c69:ProjectViewProjectNode" />
-              <item name="flutter_chart" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="chart" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="example" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -392,11 +342,21 @@
       <configuration name="tests in widget_test.dart" configurationId="FlutterTestConfigType" />
     </history-entry>
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="974" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.22932331" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.179198" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
@@ -405,17 +365,18 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info id="Build Variants" order="8" side_tool="true" />
       <window_info id="UI Designer" order="9" />
-      <window_info anchor="bottom" id="Run" order="0" sideWeight="0.49937344" weight="0.37292466" />
-      <window_info anchor="bottom" id="TODO" order="1" />
+      <window_info anchor="bottom" id="Run" order="0" sideWeight="0.49937344" weight="0.25159642" />
+      <window_info anchor="bottom" id="TODO" order="1" weight="0.32950193" />
       <window_info anchor="bottom" id="Debug" order="2" weight="0.2627551" />
-      <window_info anchor="bottom" id="Terminal" order="3" weight="0.42401022" />
+      <window_info anchor="bottom" id="Terminal" order="3" weight="0.5083014" />
       <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.50062656" side_tool="true" weight="0.5836526" />
       <window_info anchor="bottom" id="Flutter Performance" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="6" weight="0.32950193" />
       <window_info anchor="bottom" id="Dart Analysis" order="7" weight="0.329429" />
-      <window_info anchor="bottom" id="Messages" order="8" weight="0.33461046" />
+      <window_info active="true" anchor="bottom" id="Messages" order="8" visible="true" weight="0.2413793" />
       <window_info anchor="bottom" id="Logcat" order="9" weight="0.73690933" />
       <window_info anchor="bottom" id="Android Profiler" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Find" order="11" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
       <window_info anchor="right" id="Theme Preview" order="1" />
       <window_info anchor="right" id="Flutter Inspector" order="2" />
@@ -428,7 +389,7 @@
     </layout>
     <layout-to-restore>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.17982456" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.179198" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
@@ -438,16 +399,17 @@
       <window_info id="Build Variants" order="8" side_tool="true" />
       <window_info id="UI Designer" order="9" />
       <window_info anchor="bottom" id="Run" order="0" sideWeight="0.49937344" weight="0.37292466" />
-      <window_info anchor="bottom" id="TODO" order="1" />
+      <window_info anchor="bottom" id="TODO" order="1" weight="0.32950193" />
       <window_info anchor="bottom" id="Debug" order="2" weight="0.2627551" />
-      <window_info anchor="bottom" id="Terminal" order="3" weight="0.42401022" />
+      <window_info anchor="bottom" id="Terminal" order="3" weight="0.5083014" />
       <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.50062656" side_tool="true" weight="0.5836526" />
       <window_info anchor="bottom" id="Flutter Performance" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="6" weight="0.32950193" />
       <window_info anchor="bottom" id="Dart Analysis" order="7" weight="0.329429" />
-      <window_info anchor="bottom" id="Messages" order="8" weight="0.33461046" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.2413793" />
       <window_info anchor="bottom" id="Logcat" order="9" weight="0.73690933" />
       <window_info anchor="bottom" id="Android Profiler" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Find" order="11" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
       <window_info anchor="right" id="Theme Preview" order="1" />
       <window_info anchor="right" id="Flutter Inspector" order="2" />
@@ -511,13 +473,6 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/example.dart" />
-    <entry file="file://$PROJECT_DIR$/example/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="6" lean-forward="true" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/example/.packages" />
     <entry file="file://$PROJECT_DIR$/flutter_chart.iml">
       <provider selected="true" editor-type-id="text-editor" />
@@ -612,13 +567,6 @@
             <element signature="e#14347#15068#0" />
             <element signature="e#15074#15259#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/pubspec.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
         </state>
       </provider>
     </entry>
@@ -720,47 +668,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/chart/view/chart_bar.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/lib/Example.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="81" selection-start-line="81" selection-end-line="81" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/LICENSE">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="123">
           <caret line="8" column="14" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/chart/painter/chart_bar_painter.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2871">
-          <caret line="210" column="5" selection-start-line="210" selection-start-column="5" selection-end-line="210" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CHANGELOG.md">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="29">
-          <caret line="1" column="159" selection-start-line="1" selection-start-column="159" selection-end-line="1" selection-end-column="159" />
         </state>
       </provider>
     </entry>
@@ -775,10 +686,70 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/B05BD5D5BAF36F2FB9E120D1F525CD9C.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CHANGELOG.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="20" lean-forward="true" selection-start-column="20" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="29">
+          <caret line="1" column="159" selection-start-line="1" selection-start-column="159" selection-end-line="1" selection-end-column="159" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/chart/painter/chart_bar_painter.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="482">
+          <caret line="210" column="5" selection-start-line="210" selection-start-column="5" selection-end-line="210" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/chart/view/chart_bar.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-210">
+          <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="58">
+          <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/pubspec.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/lib/Example.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="120" column="29" selection-start-line="120" selection-start-column="29" selection-end-line="120" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#3301#3573#0" />
+            <element signature="e#4260#4384#0" />
+          </folding>
         </state>
       </provider>
     </entry>
