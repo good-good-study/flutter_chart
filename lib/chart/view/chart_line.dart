@@ -25,7 +25,7 @@ class ChartLine extends StatefulWidget {
   final double rulerWidth; //刻度的宽度或者高度
   final Duration duration; //动画时长
   final bool isAnimation; //是否执行动画
-  final bool isCycle; //是否重复执行动画
+  final bool isReverse; //是否重复执行动画
   final bool isCanTouch; //是否可以触摸
   final bool isShowPressedHintLine; //触摸时是否显示辅助线
   final double pressedPointRadius; //触摸点半径
@@ -43,7 +43,7 @@ class ChartLine extends StatefulWidget {
     this.xyColor,
     this.backgroundColor,
     this.isShowXy = true,
-    this.isShowYValue = false,
+    this.isShowYValue = true,
     this.isShowXyRuler = true,
     this.isShowHintX = false,
     this.isShowHintY = false,
@@ -56,7 +56,7 @@ class ChartLine extends StatefulWidget {
     this.rulerWidth = 8,
     this.duration = const Duration(milliseconds: 800),
     this.isAnimation = true,
-    this.isCycle = false,
+    this.isReverse = false,
     this.isCanTouch = false,
     this.isShowPressedHintLine = true,
     this.pressedPointRadius = 4,
@@ -74,6 +74,7 @@ class ChartLineState extends State<ChartLine>
     with SingleTickerProviderStateMixin {
   AnimationController _controller;
   double _value = 0;
+  double begin = 0.0, end = 1.0;
   Offset globalPosition;
 
   @override
@@ -81,14 +82,11 @@ class ChartLineState extends State<ChartLine>
     super.initState();
     if (widget.isAnimation) {
       _controller = AnimationController(vsync: this, duration: widget.duration);
-      Tween(begin: 0.0, end: 1.0).animate(_controller)
+      Tween(begin: begin, end: end).animate(_controller)
         ..addStatusListener((status) {
           if (status == AnimationStatus.completed) {
-            if (widget.isCycle) {
-              setState(() {
-                _value = 0;
-              });
-              _controller.forward(from: 0.0);
+            if (widget.isReverse) {
+              _controller.repeat(reverse: widget.isReverse);
             }
             print('绘制完成');
           }
