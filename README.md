@@ -13,4 +13,4 @@
 - [GitHub](https://github.com/good-good-study/flutter_chart)
 
 #运行效果
-![image]()
+![image](https://github.com/good-good-study/flutter_chart/blob/master/B05BD5D5BAF36F2FB9E120D1F525CD9C.gif)
