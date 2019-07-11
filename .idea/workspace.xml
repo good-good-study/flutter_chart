@@ -5,17 +5,10 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d12650f-2e61-4730-9c04-bd2598ae0d91" name="Default Changelist" comment="">
+    <list default="true" id="9d12650f-2e61-4730-9c04-bd2598ae0d91" name="Default Changelist" comment="支持了柱状图圆角的绘制">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/Example.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/Example.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/chart/painter/chart_bar_painter.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chart/painter/chart_bar_painter.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/chart/view/chart_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chart/view/chart_bar.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/chart/view/chart_line.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chart/view/chart_line.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/chart/view/chart_pie.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chart/view/chart_pie.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
+    <ignored path="example/ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,8 +36,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/chart/view/chart_pie.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="83">
-              <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+            <state relative-caret-position="431">
+              <caret line="27" column="21" lean-forward="true" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
                 <element signature="e#1739#2423#0" />
@@ -54,10 +47,20 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/example/ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="464">
-              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+            <state>
+              <caret column="30" lean-forward="true" selection-start-column="30" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -91,7 +94,7 @@
     </findStrings>
   </component>
   <component name="Git.Settings">
-    <option name="UPDATE_TYPE" value="MERGE" />
+    <option name="UPDATE_TYPE" value="REBASE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
@@ -340,7 +343,21 @@
       <option name="project" value="LOCAL" />
       <updated>1562769252542</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="修改版本号">
+      <created>1562827848638</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1562827848638</updated>
+    </task>
+    <task id="LOCAL-00015" summary="支持了柱状图圆角的绘制">
+      <created>1562828289796</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1562828289796</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -377,10 +394,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="974" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.17982456" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.17982456" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
@@ -395,7 +411,7 @@
       <window_info anchor="bottom" id="Terminal" order="3" weight="0.42401022" />
       <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.50062656" side_tool="true" weight="0.5836526" />
       <window_info anchor="bottom" id="Flutter Performance" order="5" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="6" weight="0.32950193" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="6" visible="true" weight="0.32950193" />
       <window_info anchor="bottom" id="Dart Analysis" order="7" weight="0.329429" />
       <window_info anchor="bottom" id="Messages" order="8" weight="0.33461046" />
       <window_info anchor="bottom" id="Logcat" order="9" weight="0.73690933" />
@@ -446,6 +462,32 @@
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName=".flowconfig" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="..." />
     <MESSAGE value="更新版本" />
@@ -454,10 +496,11 @@
     <MESSAGE value="添加了饼图" />
     <MESSAGE value="添加了依赖" />
     <MESSAGE value="曲线，折线 绘制阴影层" />
-    <MESSAGE value="修改版本号" />
     <MESSAGE value="曲线添加了触摸事件" />
     <MESSAGE value="优化曲线触摸事件" />
-    <option name="LAST_COMMIT_MESSAGE" value="优化曲线触摸事件" />
+    <MESSAGE value="修改版本号" />
+    <MESSAGE value="支持了柱状图圆角的绘制" />
+    <option name="LAST_COMMIT_MESSAGE" value="支持了柱状图圆角的绘制" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.git/config">
@@ -721,18 +764,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/chart/painter/chart_bar_painter.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2409">
-          <caret line="175" column="56" selection-start-line="175" selection-start-column="56" selection-end-line="175" selection-end-column="56" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-            <element signature="e#1757#1865#0" />
-            <element signature="e#1900#2319#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CHANGELOG.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="82">
@@ -747,10 +778,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lib/chart/painter/chart_bar_painter.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2409">
+          <caret line="175" column="56" selection-start-line="175" selection-start-column="56" selection-end-line="175" selection-end-column="56" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+            <element signature="e#1757#1865#0" />
+            <element signature="e#1900#2319#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="30" lean-forward="true" selection-start-column="30" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/支持了柱状图圆角的绘制.patch">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/chart/view/chart_pie.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+        <state relative-caret-position="431">
+          <caret line="27" column="21" lean-forward="true" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
             <element signature="e#1739#2423#0" />
@@ -758,12 +811,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>
