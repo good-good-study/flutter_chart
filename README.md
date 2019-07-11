@@ -12,6 +12,16 @@
 - [CSDN](https://blog.csdn.net/sxt_zls)
 - [GitHub](https://github.com/good-good-study/flutter_chart)
 
-#运行效果
+#UI示例
 
-![image](https://github.com/good-good-study/flutter_chart/blob/master/B05BD5D5BAF36F2FB9E120D1F525CD9C.gif)
+![image](https://github.com/good-good-study/flutter_chart/blob/master/8F5F18FA8BE1A5B57FF39BA6BF826C5E.gif)
+
+
+#曲线图
+
+![image](https://github.com/good-good-study/flutter_chart/blob/master/3CDF82F64CFA1B467308604391646BAA.gif)
+
+
+#柱状图
+
+![image](https://github.com/good-good-study/flutter_chart/blob/master/AD1F9E4BD8FAF7BFD8ADC0D8DF73B625.gif)
