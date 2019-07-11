@@ -14,14 +14,14 @@
 
 #UI示例
 
-![image](https://github.com/good-good-study/flutter_chart/blob/master/8F5F18FA8BE1A5B57FF39BA6BF826C5E.gif)
+![image](https://github.com/good-good-study/flutter_chart/blob/master/ui_chart_all.gif)
 
 
 #曲线图
 
-![image](https://github.com/good-good-study/flutter_chart/blob/master/3CDF82F64CFA1B467308604391646BAA.gif)
+![image](https://github.com/good-good-study/flutter_chart/blob/master/ui_chart_curve.gif)
 
 
 #柱状图
 
-![image](https://github.com/good-good-study/flutter_chart/blob/master/AD1F9E4BD8FAF7BFD8ADC0D8DF73B625.gif)
+![image](https://github.com/good-good-study/flutter_chart/blob/master/ui_chart_bar.gif)
