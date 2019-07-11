@@ -25,3 +25,8 @@
 #柱状图
 
 ![image](https://github.com/good-good-study/flutter_chart/blob/master/ui_chart_bar.gif)
+
+
+#折线图
+
+![image](https://github.com/good-good-study/flutter_chart/blob/master/ui_chart_line.gif)
