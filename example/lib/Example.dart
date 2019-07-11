@@ -9,7 +9,6 @@ class Example extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       home: AnnotatedRegion(
         value: SystemUiOverlayStyle.light
             .copyWith(statusBarBrightness: Brightness.dark),
@@ -69,7 +68,7 @@ class ExampleChart extends StatelessWidget {
       yNum: 8,
       backgroundColor: Colors.black,
       isAnimation: true,
-      isReverse: false,
+      isCycle: false,
       isCanTouch: true,
       isShowPressedHintLine: true,
       pressedPointRadius: 4,
@@ -98,14 +97,6 @@ class ExampleChart extends StatelessWidget {
       backgroundColor: Colors.black,
       isShowX: true,
       fontColor: Colors.white,
-      rectShadowColor: Colors.white.withOpacity(0.5),
-      isReverse: false,
-      isCanTouch: true,
-      isShowTouchShadow: true,
-      isShowTouchValue: true,
-      rectRadiusTopLeft: 50,
-      rectRadiusTopRight: 50,
-      duration: Duration(milliseconds: 1000),
     );
   }
 
@@ -125,6 +116,7 @@ class ExampleChart extends StatelessWidget {
       R: MediaQuery.of(context).size.width / 3,
       centerR: 6,
       duration: Duration(milliseconds: 3000),
+      isCycle: false,
       centerColor: Colors.white,
       fontColor: Colors.white,
     );
