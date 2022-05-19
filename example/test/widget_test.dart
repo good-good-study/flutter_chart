@@ -1,4 +1,4 @@
-//import 'package:example/Example.dart';
+//import 'package:example/example_page.dart';
 //import 'package:flutter_test/flutter_test.dart';
 
 void main() {
