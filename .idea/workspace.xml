@@ -13,124 +13,49 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d12650f-2e61-4730-9c04-bd2598ae0d91" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/example/android/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/android/app/src/main/kotlin/com/example/example/MainActivity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/android/app/src/main/res/drawable-v21/launch_background.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/android/app/src/main/res/values-night/styles.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Runner/AppDelegate.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Runner/Runner-Bridging-Header.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/linux/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/linux/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/linux/flutter/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/linux/flutter/generated_plugin_registrant.cc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/linux/flutter/generated_plugin_registrant.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/linux/flutter/generated_plugins.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/linux/main.cc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/linux/my_application.cc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/linux/my_application.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/macos/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/macos/Flutter/Flutter-Debug.xcconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/macos/Flutter/Flutter-Release.xcconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/macos/Runner.xcodeproj/project.pbxproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/macos/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/macos/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/macos/Runner.xcworkspace/contents.xcworkspacedata" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/macos/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/macos/Runner/AppDelegate.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/macos/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_1024.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_128.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_16.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_256.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_32.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_512.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_64.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/macos/Runner/Base.lproj/MainMenu.xib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/macos/Runner/Configs/AppInfo.xcconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/macos/Runner/Configs/Debug.xcconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/macos/Runner/Configs/Release.xcconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/macos/Runner/Configs/Warnings.xcconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/macos/Runner/DebugProfile.entitlements" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/macos/Runner/Info.plist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/macos/Runner/MainFlutterWindow.swift" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/macos/Runner/Release.entitlements" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/web/favicon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/web/icons/Icon-192.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/web/icons/Icon-512.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/web/icons/Icon-maskable-192.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/web/icons/Icon-maskable-512.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/web/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/web/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/windows/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/windows/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/windows/flutter/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/windows/flutter/generated_plugin_registrant.cc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/windows/flutter/generated_plugin_registrant.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/windows/flutter/generated_plugins.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/windows/runner/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/windows/runner/Runner.rc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/windows/runner/flutter_window.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/windows/runner/flutter_window.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/windows/runner/main.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/windows/runner/resource.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/windows/runner/resources/app_icon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/windows/runner/runner.exe.manifest" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/windows/runner/utils.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/windows/runner/utils.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/windows/runner/win32_window.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/windows/runner/win32_window.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.flowconfig" beforeDir="false" />
+    <list default="true" id="9d12650f-2e61-4730-9c04-bd2598ae0d91" name="Default Changelist" comment="修改ui文件名">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/flutter_android.sksl.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/lib/draggable_bar_chart.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/lib/draggable_chart_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/lib/draggable_line_chart.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/lib/style.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/chart/canvas/axis_canvas_impl.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/chart/canvas/base_canvas.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/chart/canvas/base_chart_canvas.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/chart/canvas/chart_canvas_impl.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/chart/canvas/line_painter.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/chart/canvas/point_painter.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/chart/chart/bar_chart.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/chart/chart/bar_popup_canvas.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/chart/chart/base_chart.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/chart/chart/line_chart.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/chart/chart/line_popup_canvas.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/chart/common/axis_delegate.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/chart/common/base_layout_config.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/chart/common/base_text_element.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/chart/common/chart_gesture_view.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/chart/common/find.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/chart/common/gesture_delegate.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/chart/common/popup_spec.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/chart/common/style.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/chart/common/text_element.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/chart/impl/bar/bar_canvas_impl.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/chart/impl/bar/bar_layout_impl.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/chart/impl/line/line_canvas_impl.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/chart/impl/line/line_layout_impl.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/chart/model/chart_data_bar.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/chart/model/chart_data_model.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/local.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/.metadata" beforeDir="false" afterPath="$PROJECT_DIR$/example/.metadata" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/android/app/src/debug/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/app/src/debug/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/android/app/src/main/java/com/chart/example/MainActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/android/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/app/src/main/res/values/styles.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/android/app/src/profile/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/app/src/profile/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/android/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/android/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/Flutter/AppFrameworkInfo.plist" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/Flutter/AppFrameworkInfo.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/Runner.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/Runner/AppDelegate.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/Runner/AppDelegate.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/Runner/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/Runner/Info.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/Runner/main.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/Example.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/example_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/example_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/example_page.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/test/widget_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/test/widget_test.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/chart/chart_bean.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chart/chart_bean.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/chart/chart_pie_bean.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chart/chart_pie_bean.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/chart/painter/base_painter.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chart/painter/base_painter.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/chart/painter/chart_bar_painter.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chart/painter/chart_bar_painter.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/chart/painter/chart_line_painter.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chart/painter/chart_line_painter.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/chart/painter/chart_pie_painter.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chart/painter/chart_pie_painter.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/chart/view/chart_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chart/view/chart_bar.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/chart/view/chart_line.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chart/view/chart_line.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/chart/view/chart_pie.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chart/view/chart_pie.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/flutter_chart.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/flutter_chart.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/flutter_chart_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/test/flutter_chart_test.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -245,6 +170,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="D:/Sdk/Sdk" />
@@ -259,11 +186,13 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/example/lib" />
+      <recent name="$PROJECT_DIR$/lib/chart" />
       <recent name="$PROJECT_DIR$/example/android/app" />
       <recent name="$PROJECT_DIR$/example" />
       <recent name="$PROJECT_DIR$/lib/chart/view" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/example/lib" />
       <recent name="D:\WorkerSpace\flutter_chart\lib" />
     </key>
   </component>
@@ -560,6 +489,15 @@
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.md" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="RECENT_FILTERS">
       <map>
         <entry key="Branch">

@@ -1,14 +1,16 @@
 name: flutter_chart
 description: Flutter Canvas draws Bezier curves and histograms, embeds animations,The gesture touch function for graphs, line graphs, and histograms is now supported.
-version: 0.1.6
+version: 0.2.0
 homepage: https://github.com/good-good-study/flutter_chart
 
 environment:
-  sdk: '>=2.12.0 <3.0.0'
+  sdk: '>=2.17.0 <3.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
+
+  intl: 0.17.0
 
 dev_dependencies:
   flutter_test:

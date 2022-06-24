@@ -1,11 +1,11 @@
 # Flutter绘制图表，支持 android 、ios、web、macos、windows、linux .
 
-绘制曲线 ,折线,柱状,饼图，包含动画效果和触摸操作
+绘制曲线 ,折线,柱状,饼图，包含动画效果，支持触摸、拖拽。
 
 # 怎么使用？
 
 - 添加依赖
-   flutter_chart: ^0.1.6
+   flutter_chart: ^0.2.0
 
 ## 我的博客
 

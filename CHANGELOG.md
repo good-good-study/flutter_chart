@@ -1,3 +1,6 @@
+## 0.2.0 - 2022/06/25
+* Line、Bar 支持拖拽模式,支持显示触摸悬浮框.
+
 ## 0.1.6 - 2022/05/19
 * 迁移至 Sound Null Safety And Support Flutter 3 .
 

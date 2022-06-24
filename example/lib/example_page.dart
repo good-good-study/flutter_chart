@@ -1,3 +1,5 @@
+import 'package:example/draggable_chart_page.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_chart/flutter_chart.dart';
@@ -20,15 +22,27 @@ class Example extends StatelessWidget {
 class ExampleChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      physics: BouncingScrollPhysics(),
-      children: <Widget>[
-        _buildChartBarCircle(context),
-        _buildChartBarRound(context),
-        _buildChartCurve(context),
-        _buildChartLine(context),
-        _buildChartPie(context),
-      ],
+    return Scaffold(
+      appBar: AppBar(
+        title: GestureDetector(
+          onTap: () {
+            Navigator.of(context).push(
+              CupertinoPageRoute(builder: (_) => DraggableChartPage()),
+            );
+          },
+          child: Text('拖拽Charts'),
+        ),
+      ),
+      body: ListView(
+        physics: BouncingScrollPhysics(),
+        children: <Widget>[
+          _buildChartBarCircle(context),
+          _buildChartBarRound(context),
+          _buildChartCurve(context),
+          _buildChartLine(context),
+          _buildChartPie(context),
+        ],
+      ),
     );
   }
 
