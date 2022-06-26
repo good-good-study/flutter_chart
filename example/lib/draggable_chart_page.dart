@@ -1,8 +1,9 @@
+import 'package:example/draggable_line_chart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'draggable_bar_chart.dart';
-import 'draggable_line_chart.dart';
+import 'fixed_draggable_bar_chart.dart';
+import 'fixed_draggable_line_chart.dart';
 
 class DraggableChartPage extends StatelessWidget {
   const DraggableChartPage({Key? key}) : super(key: key);
@@ -23,11 +24,18 @@ class DraggableChartPage extends StatelessWidget {
           children: const [
             SizedBox(height: 24),
 
-            /// Line Chart
+            /// Fixed Line Chart
             DraggableLineChart(),
 
+            SizedBox(height: 8),
+
+            /// Line Chart
+            FixedDraggableLineChart(),
+
+            // SizedBox(height: 24),
+
             /// bar Chart
-            DraggableBarChart(),
+            FixedDraggableBarChart(),
           ],
         ),
       ),

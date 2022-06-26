@@ -165,7 +165,8 @@ class _AxisValueCanvas {
     for (var index = 0; index < config.xAxisCount; index++) {
       var element = TextElement(
         TextSpan(
-          text: config.xAxisValue(index),
+          text: config.xAxisValue(index) ??
+              config.delegate?.xAxisFormatter?.call(index),
           style: delegate.labelStyle?.style,
         ),
         textAlign: TextAlign.center,

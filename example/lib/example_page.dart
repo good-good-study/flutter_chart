@@ -30,7 +30,7 @@ class ExampleChart extends StatelessWidget {
               CupertinoPageRoute(builder: (_) => DraggableChartPage()),
             );
           },
-          child: Text('拖拽Charts'),
+          child: Text('点击进入拖拽Charts'),
         ),
       ),
       body: ListView(

@@ -13,14 +13,14 @@ import 'package:flutter_chart/chart/model/chart_data_bar.dart';
 import 'package:intl/intl.dart';
 
 /// 可拖动、长按 的 Charts
-class DraggableBarChart extends StatefulWidget {
-  const DraggableBarChart({Key? key}) : super(key: key);
+class FixedDraggableBarChart extends StatefulWidget {
+  const FixedDraggableBarChart({Key? key}) : super(key: key);
 
   @override
-  State<DraggableBarChart> createState() => _DraggableBarChartState();
+  State<FixedDraggableBarChart> createState() => _FixedDraggableBarChartState();
 }
 
-class _DraggableBarChartState extends State<DraggableBarChart> {
+class _FixedDraggableBarChartState extends State<FixedDraggableBarChart> {
   static const labels = ['', '离床', '清醒', '浅睡', '深睡', ''];
 
   /// 构建一个测试ModelBar
@@ -39,25 +39,39 @@ class _DraggableBarChartState extends State<DraggableBarChart> {
   }
 
   /// 数据源
+  /// 0 深睡
+  /// 1 浅睡
+  /// 2 清醒
+  /// 3 离床
   final data = [
     // 深睡
-    _buildModelBar(index: 0, hour: 0, color: const Color(0xFF3E4590)),
-    _buildModelBar(index: 0, hour: 1, color: const Color(0xFF3E4590)),
-    _buildModelBar(index: 0, hour: 2, color: const Color(0xFF3E4590)),
+    _buildModelBar(index: 0, hour: 0, color: Colors.indigoAccent),
+    _buildModelBar(index: 0, hour: 1, color: Colors.indigoAccent),
+    _buildModelBar(index: 0, hour: 2, color: Colors.indigoAccent),
     // 浅睡
-    _buildModelBar(index: 1, color: const Color(0xFF9498C2), hour: 10),
-    _buildModelBar(index: 1, color: const Color(0xFF9498C2), hour: 11),
-    _buildModelBar(index: 1, color: const Color(0xFF9498C2), hour: 12),
+    _buildModelBar(index: 1, hour: 3, color: Colors.blue),
+    _buildModelBar(index: 1, hour: 4, color: Colors.blue),
+    _buildModelBar(index: 1, hour: 5, color: Colors.blue),
     // 离床
-    _buildModelBar(index: 3, hour: 3, color: const Color(0x26000000)),
-    _buildModelBar(index: 3, hour: 4, color: const Color(0x26000000)),
-    _buildModelBar(index: 3, hour: 5, color: const Color(0x26000000)),
+    _buildModelBar(index: 3, hour: 6, color: const Color(0x26000000)),
+    _buildModelBar(index: 3, hour: 7, color: const Color(0x26000000)),
+    _buildModelBar(index: 3, hour: 8, color: const Color(0x26000000)),
 
     // 清醒
-    _buildModelBar(index: 2, hour: 7),
-    _buildModelBar(index: 0, hour: 8, color: const Color(0xFF3E4590)),
-    _buildModelBar(index: 2, hour: 9),
-    _buildModelBar(index: 3, hour: 11, color: const Color(0x26000000)),
+    _buildModelBar(index: 2, hour: 9, color: Colors.blueGrey),
+
+    _buildModelBar(index: 0, hour: 10, color: Colors.indigoAccent),
+    _buildModelBar(index: 2, hour: 11, color: Colors.blueGrey),
+    _buildModelBar(index: 3, hour: 12, color: const Color(0x26000000)),
+
+    _buildModelBar(index: 2, hour: 14, color: Colors.blueGrey),
+    _buildModelBar(index: 3, hour: 18, color: const Color(0x26000000)),
+
+    _buildModelBar(index: 2, hour: 20, color: Colors.blueGrey),
+    _buildModelBar(index: 0, hour: 21, color: Colors.indigoAccent),
+    _buildModelBar(index: 3, hour: 22, color: const Color(0x26000000)),
+    _buildModelBar(index: 2, hour: 23, color: Colors.blueGrey),
+    _buildModelBar(index: 3, hour: 24, color: const Color(0x26000000)),
   ];
 
   Size? size;
@@ -131,8 +145,8 @@ class _DraggableBarChartState extends State<DraggableBarChart> {
       )}\n',
       style: const TextStyle(fontSize: 12, color: Colors.black),
       children: [
-        const TextSpan(
-          text: '夜间离床时间已超过',
+        TextSpan(
+          text: '${_getLabel(data.index)}时间已超过',
           style: TextStyle(fontSize: 12, color: Colors.deepPurple),
         ),
         TextSpan(
@@ -152,9 +166,9 @@ class _DraggableBarChartState extends State<DraggableBarChart> {
   }
 
   /// x轴坐标数据格式化
-  String _xAxisFormatter(ChartDataBar data) {
+  String _xAxisFormatter(int index) {
     return DateFormat("HH:mm").format(
-      DateTime.fromMillisecondsSinceEpoch(data.time * 1000),
+      DateTime.fromMillisecondsSinceEpoch(data[index].time * 1000),
     );
   }
 
@@ -168,4 +182,21 @@ class _DraggableBarChartState extends State<DraggableBarChart> {
 
   /// 是否应该绘制此点位的气泡
   bool _popupBubbleShouldShow(ChartDataBar data) => data.hasBubble;
+
+  /// 0 深睡
+  /// 1 浅睡
+  /// 2 清醒
+  /// 3 离床
+  String _getLabel(int type) {
+    switch (type) {
+      case 0:
+        return '深睡';
+      case 1:
+        return '浅睡';
+      case 2:
+        return '清醒';
+      default:
+        return '离床';
+    }
+  }
 }

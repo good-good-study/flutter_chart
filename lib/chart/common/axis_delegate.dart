@@ -4,7 +4,7 @@ import 'style.dart';
 
 /// x轴数据格式化
 /// [input] : chart数据类型。
-typedef AxisFormatter<T> = String Function(T input);
+typedef AxisFormatter = String Function(int rulerIndex);
 
 /// y轴数据格式化
 /// [input] : y轴刻度的百分比。
@@ -32,7 +32,7 @@ class AxisDelegate<T> {
   final int hintLineNum;
 
   /// x轴数据格式化
-  final AxisFormatter<T>? xAxisFormatter;
+  final AxisFormatter? xAxisFormatter;
 
   /// y轴数据格式化
   final AxisYFormatter? yAxisFormatter;
@@ -90,7 +90,7 @@ class AxisDelegate<T> {
     bool? showEndYAxisLine,
     bool? showHorizontalHintAxisLine,
     int? hintLineNum,
-    AxisFormatter<T>? xAxisFormatter,
+    AxisFormatter? xAxisFormatter,
     AxisYFormatter? yAxisFormatter,
     double? domainPointSpacing,
     double? labelVerticalSpacing,
@@ -147,12 +147,32 @@ class LineStyle {
   final double strokeWidth;
   final int? thickness;
 
+  /// 是否为曲线
+  final bool isCurved;
+
   const LineStyle({
     this.color = Colors.grey,
     this.strokeWidth = 1,
     this.dashPattern,
     this.thickness,
+    this.isCurved = true,
   });
+
+  LineStyle copyWith({
+    Color? color,
+    List<int>? dashPattern,
+    double? strokeWidth,
+    int? thickness,
+    bool? isCurved,
+  }) {
+    return LineStyle(
+      color: color ?? this.color,
+      dashPattern: dashPattern ?? this.dashPattern,
+      strokeWidth: strokeWidth ?? this.strokeWidth,
+      thickness: thickness ?? this.thickness,
+      isCurved: isCurved ?? this.isCurved,
+    );
+  }
 }
 
 /// bar样式
@@ -168,4 +188,18 @@ class BarStyle {
     this.height = 9,
     this.strokeWidth = 1,
   });
+
+  BarStyle copyWith({
+    Color? fill,
+    Color? stroke,
+    double? height,
+    double? strokeWidth,
+  }) {
+    return BarStyle(
+      fill: fill ?? this.fill,
+      stroke: stroke ?? this.stroke,
+      strokeWidth: strokeWidth ?? this.strokeWidth,
+      height: height ?? this.height,
+    );
+  }
 }

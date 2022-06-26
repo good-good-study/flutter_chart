@@ -14,48 +14,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d12650f-2e61-4730-9c04-bd2598ae0d91" name="Default Changelist" comment="修改ui文件名">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/flutter_android.sksl.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/lib/draggable_bar_chart.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/lib/draggable_chart_page.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/lib/draggable_line_chart.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/lib/style.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/chart/canvas/axis_canvas_impl.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/chart/canvas/base_canvas.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/chart/canvas/base_chart_canvas.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/chart/canvas/chart_canvas_impl.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/chart/canvas/line_painter.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/chart/canvas/point_painter.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/chart/chart/bar_chart.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/chart/chart/bar_popup_canvas.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/chart/chart/base_chart.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/chart/chart/line_chart.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/chart/chart/line_popup_canvas.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/chart/common/axis_delegate.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/chart/common/base_layout_config.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/chart/common/base_text_element.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/chart/common/chart_gesture_view.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/chart/common/find.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/chart/common/gesture_delegate.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/chart/common/popup_spec.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/chart/common/style.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/chart/common/text_element.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/chart/impl/bar/bar_canvas_impl.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/chart/impl/bar/bar_layout_impl.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/chart/impl/line/line_canvas_impl.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/chart/impl/line/line_layout_impl.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/chart/model/chart_data_bar.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/chart/model/chart_data_model.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/draggable_fixed_bar_chart.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/draggable_fixed_line_chart.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/draggable_line_chart.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/lib/fixed_draggable_line_chart.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/chart/impl/line/fixed_line_canvas_impl.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/chart/impl/line/fixed_line_layout_impl.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/draggable_bar_chart.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/fixed_draggable_bar_chart.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/draggable_chart_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/draggable_chart_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/draggable_line_chart.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/draggable_line_chart.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/lib/example_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/example_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/chart/canvas/axis_canvas_impl.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chart/canvas/axis_canvas_impl.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/chart/common/axis_delegate.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chart/common/axis_delegate.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/chart/impl/line/line_canvas_impl.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chart/impl/line/line_canvas_impl.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/chart/impl/line/line_layout_impl.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chart/impl/line/line_layout_impl.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,19 +154,20 @@
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/example/lib" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="dart.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/lib/chart/impl/line/fixed" />
       <recent name="$PROJECT_DIR$/example/lib" />
       <recent name="$PROJECT_DIR$/lib/chart" />
       <recent name="$PROJECT_DIR$/example/android/app" />
-      <recent name="$PROJECT_DIR$/example" />
-      <recent name="$PROJECT_DIR$/lib/chart/view" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/chart/impl/line" />
       <recent name="$PROJECT_DIR$/example/lib" />
       <recent name="D:\WorkerSpace\flutter_chart\lib" />
     </key>

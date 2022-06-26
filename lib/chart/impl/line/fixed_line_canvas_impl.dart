@@ -6,9 +6,8 @@ import 'package:flutter_chart/chart/canvas/base_chart_canvas.dart';
 import 'package:flutter_chart/chart/common/base_layout_config.dart';
 import 'package:flutter_chart/chart/model/chart_data_model.dart';
 
-/// 绘制曲线：一个横坐标对应一个点，两个点之间不允许绘制内容。
-/// 即：最小刻度即为一个点的距离。
-class LineCanvasImpl extends BaseCanvas<ChartDataModel> {
+/// 绘制曲线
+class FixedLineCanvasImpl extends BaseCanvas<ChartDataModel> {
   @override
   void draw({
     required List<ChartDataModel> data,
@@ -30,10 +29,20 @@ class LineCanvasImpl extends BaseCanvas<ChartDataModel> {
     var maxValue = config.maxValue;
     var maxHeight = bounds.height;
 
+    /// 1s时长对应的宽度，全程24小时，两个点之间的跨度为1小时。
+    var dw = itemWidth / 3600; // 3600s为1小时
+
     for (var index = 0; index < data.length; index++) {
       var model = data[index];
+
+      var date = DateTime.fromMillisecondsSinceEpoch(model.xAxis * 1000);
+      var hour = date.hour;
+      var minute = date.minute;
+      var seconds = date.second + minute * 60 + hour * 3600;
+
       var offset = Offset(
-        bounds.left + itemWidth * index,
+        // bounds.left + itemWidth * index,
+        bounds.left + dw * seconds,
         bounds.bottom - (config.yAxisValue(model) / maxValue) * maxHeight,
       );
       points.add(offset);

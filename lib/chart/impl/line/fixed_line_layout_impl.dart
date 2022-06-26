@@ -7,12 +7,11 @@ import 'package:flutter_chart/chart/common/find.dart';
 import 'package:flutter_chart/chart/common/gesture_delegate.dart';
 import 'package:flutter_chart/chart/common/popup_spec.dart';
 import 'package:flutter_chart/chart/model/chart_data_model.dart';
+import 'package:intl/intl.dart';
 
 /// line charts配置
-/// 一个横坐标对应一个点，两个点之间不允许绘制内容。
-/// 即：最小刻度即为一个点的距离。
-class LineLayoutConfig extends BaseLayoutConfig<ChartDataModel> {
-  LineLayoutConfig({
+class FixedLayoutConfig extends BaseLayoutConfig<ChartDataModel> {
+  FixedLayoutConfig({
     required super.data,
     required super.size,
     super.axisCount,
@@ -23,7 +22,7 @@ class LineLayoutConfig extends BaseLayoutConfig<ChartDataModel> {
   });
 
   @override
-  LineLayoutConfig copyWith({
+  FixedLayoutConfig copyWith({
     List<ChartDataModel>? data,
     int? axisCount,
     Size? size,
@@ -32,7 +31,7 @@ class LineLayoutConfig extends BaseLayoutConfig<ChartDataModel> {
     PopupSpec<ChartDataModel>? popupSpec,
     EdgeInsets? padding,
   }) {
-    return LineLayoutConfig(
+    return FixedLayoutConfig(
       data: data ?? this.data,
       size: size ?? this.size,
       axisCount: axisCount ?? this.axisCount,
@@ -69,6 +68,16 @@ class LineLayoutConfig extends BaseLayoutConfig<ChartDataModel> {
   @override
   double? get draggableWidth => size.width - padding.horizontal;
 
+  /// 获取x轴指定位置的值 07：00
+  /// 优先级比[AxisDelegate.xAxisFormatter]高。
+  @override
+  String xAxisValue(int index) {
+    var hour = index;
+    var now = DateTime.now();
+    var date = DateTime(now.year, now.month, now.day, hour);
+    return DateFormat('HH:mm').format(date);
+  }
+
   /// 根据手势触摸坐标查找指定数据点位
   @override
   ChartTargetFind<ChartDataModel>? findTarget(Offset offset) {
@@ -78,10 +87,20 @@ class LineLayoutConfig extends BaseLayoutConfig<ChartDataModel> {
     // 当前拖拽的偏移量
     var dragX = (gestureDelegate?.offset ?? Offset.zero).dx;
 
+    /// 1s时长对应的宽度，全程24小时，两个点之间的跨度为1小时。
+    var dw = itemWidth / 3600; // 3600s为1小时
+
     for (var index = 0; index < data.length; index++) {
       var model = data[index];
+
+      var date = DateTime.fromMillisecondsSinceEpoch(model.xAxis * 1000);
+      var hour = date.hour;
+      var minute = date.minute;
+      var seconds = date.second + minute * 60 + hour * 3600;
+
       var curr = Offset(
-        bounds.left + dragX + itemWidth * index,
+        // bounds.left + dragX + itemWidth * index,
+        bounds.left + dragX + dw * seconds,
         bounds.bottom - yAxisValue(model) / maxValue * bounds.height,
       );
       if ((curr - offset).dx.abs() < itemWidth / 2) {

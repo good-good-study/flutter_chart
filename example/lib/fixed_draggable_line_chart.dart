@@ -3,35 +3,62 @@ import 'package:flutter/material.dart';
 import 'package:flutter_chart/chart/chart/line_chart.dart';
 import 'package:flutter_chart/chart/common/base_layout_config.dart';
 import 'package:flutter_chart/chart/common/chart_gesture_view.dart';
-import 'package:flutter_chart/chart/impl/line/line_canvas_impl.dart';
-import 'package:flutter_chart/chart/impl/line/line_layout_impl.dart';
+import 'package:flutter_chart/chart/impl/line/fixed_line_canvas_impl.dart';
+import 'package:flutter_chart/chart/impl/line/fixed_line_layout_impl.dart';
 import 'package:flutter_chart/chart/model/chart_data_model.dart';
 import 'package:intl/intl.dart';
 
-/// 拖拽&长按 的 Charts,横坐标依据数据长度而定。
-/// 适合排列场景：07-1 、07-02、07-03、07-04...
-/// 即：每个x轴刻度间的距离相同，x轴刻度之间只允许绘制一个点。
-class DraggableLineChart extends StatefulWidget {
-  const DraggableLineChart({Key? key}) : super(key: key);
+/// 可拖动、长按 的 Charts
+/// 横坐标固定为0点到24点
+/// 每个点是根据时间时长所绘制。
+/// 即：两个坐标刻度之间，可以存在多个子节点。
+class FixedDraggableLineChart extends StatefulWidget {
+  const FixedDraggableLineChart({Key? key}) : super(key: key);
 
   @override
-  State<DraggableLineChart> createState() => _DraggableLineChartState();
+  State<FixedDraggableLineChart> createState() =>
+      _FixedDraggableLineChartState();
 }
 
-class _DraggableLineChartState extends State<DraggableLineChart> {
+class _FixedDraggableLineChartState extends State<FixedDraggableLineChart> {
   static int hour(int hour) => 1655913600 + 3600 * hour;
 
   /// 数据源
   final data = [
-    ChartDataModel(xAxis: hour(7), yAxis: 8),
-    ChartDataModel(xAxis: hour(8), yAxis: 8),
-    ChartDataModel(xAxis: hour(9), yAxis: 8),
-    ChartDataModel(xAxis: hour(10), yAxis: 12),
-    ChartDataModel(xAxis: hour(11), yAxis: 8),
-    ChartDataModel(xAxis: hour(12), yAxis: 24),
-    ChartDataModel(xAxis: hour(13), yAxis: 33),
-    ChartDataModel(xAxis: hour(14), yAxis: 16),
-    ChartDataModel(xAxis: hour(15), yAxis: 14),
+    ChartDataModel(xAxis: hour(0), yAxis: 2),
+    ChartDataModel(xAxis: hour(1), yAxis: 64),
+    ChartDataModel(xAxis: hour(2), yAxis: 60),
+    ChartDataModel(xAxis: hour(3), yAxis: 40),
+    ChartDataModel(xAxis: hour(3) + 60 * 10, yAxis: 42),
+    ChartDataModel(xAxis: hour(3) + 60 * 20, yAxis: 42),
+    ChartDataModel(xAxis: hour(3) + 60 * 30, yAxis: 40),
+    ChartDataModel(xAxis: hour(3) + 60 * 45, yAxis: 44),
+    ChartDataModel(xAxis: hour(3) + 60 * 50, yAxis: 46),
+    ChartDataModel(xAxis: hour(4), yAxis: 48),
+    ChartDataModel(xAxis: hour(5), yAxis: 46),
+    ChartDataModel(xAxis: hour(5) + 60 * 5, yAxis: 44),
+    ChartDataModel(xAxis: hour(5) + 60 * 25, yAxis: 42),
+    ChartDataModel(xAxis: hour(5) + 60 * 35, yAxis: 42),
+    ChartDataModel(xAxis: hour(5) + 60 * 40, yAxis: 40),
+    ChartDataModel(xAxis: hour(5) + 60 * 47, yAxis: 38),
+    ChartDataModel(xAxis: hour(6), yAxis: 32),
+    ChartDataModel(xAxis: hour(7), yAxis: 44),
+    ChartDataModel(xAxis: hour(8), yAxis: 40),
+    ChartDataModel(xAxis: hour(9), yAxis: 88),
+    ChartDataModel(xAxis: hour(10), yAxis: 40),
+    ChartDataModel(xAxis: hour(11), yAxis: 0),
+    ChartDataModel(xAxis: hour(12), yAxis: 0),
+    ChartDataModel(xAxis: hour(13), yAxis: 0),
+    ChartDataModel(xAxis: hour(14), yAxis: 19),
+    ChartDataModel(xAxis: hour(15), yAxis: 0),
+    ChartDataModel(xAxis: hour(16), yAxis: 39),
+    ChartDataModel(xAxis: hour(17), yAxis: 10),
+    ChartDataModel(xAxis: hour(18), yAxis: 0),
+    ChartDataModel(xAxis: hour(19), yAxis: 100),
+    ChartDataModel(xAxis: hour(20), yAxis: 0),
+    ChartDataModel(xAxis: hour(21), yAxis: 0),
+    ChartDataModel(xAxis: hour(22), yAxis: 0),
+    ChartDataModel(xAxis: hour(23), yAxis: 0),
   ];
 
   Size? size;
@@ -49,30 +76,25 @@ class _DraggableLineChartState extends State<DraggableLineChart> {
         borderRadius: BorderRadius.circular(8),
       ),
       child: ChartGestureView<ChartDataModel>(
-        initConfig: LineLayoutConfig(
+        initConfig: FixedLayoutConfig(
           data: data,
+          axisCount: 24,
           size: Size(pixel - margin.horizontal, 264),
           delegate: CommonLineAxisDelegate.copyWith(
             xAxisFormatter: _xAxisFormatter,
             yAxisFormatter: _yAxisFormatter,
-            lineStyle: CommonLineAxisDelegate.lineStyle?.copyWith(
-              color: Colors.green,
-            ),
           ),
           popupSpec: CommonPopupSpec.copyWith(
             textFormatter: _textFormatter,
             // popupShouldDraw: _popupShouldShow,
             // bubbleShouldDraw: _popupBubbleShouldShow,
-            lineStyle: CommonPopupSpec.lineStyle?.copyWith(
-              color: Colors.lightGreen,
-            ),
           ),
         ),
         builder: (_, newConfig) => CustomPaint(
           size: size!,
           painter: LineChart(
             data: data,
-            contentCanvas: LineCanvasImpl(),
+            contentCanvas: FixedLineCanvasImpl(),
             layoutConfig: newConfig as BaseLayoutConfig<ChartDataModel>,
           ),
         ),
@@ -86,7 +108,7 @@ class _DraggableLineChartState extends State<DraggableLineChart> {
         .format(DateTime.fromMillisecondsSinceEpoch(data.xAxis * 1000));
 
     /// 是否为异常数据
-    var normalValue = 20;
+    var normalValue = 60;
     bool isException = data.yAxis > normalValue;
     Color color = isException ? Colors.red : Colors.black;
     return TextSpan(
@@ -94,7 +116,7 @@ class _DraggableLineChartState extends State<DraggableLineChart> {
       style: const TextStyle(fontSize: 12, color: Colors.black),
       children: [
         TextSpan(
-          text: isException ? '气温：大于' : '气温: ',
+          text: isException ? '心率异常: 大于' : '心率: ',
           style: TextStyle(fontSize: 12, color: color),
         ),
         TextSpan(
@@ -106,8 +128,8 @@ class _DraggableLineChartState extends State<DraggableLineChart> {
           ),
         ),
         TextSpan(
-          text: '°c',
-          style: TextStyle(fontSize: 14, color: color),
+          text: ' 次/分钟',
+          style: TextStyle(fontSize: 12, color: color),
         ),
       ],
     );
