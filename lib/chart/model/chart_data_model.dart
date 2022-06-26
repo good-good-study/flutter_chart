@@ -1,5 +1,5 @@
 /// Chart 数据源
-class ChartDataModel {
+class ChartDataModel implements Comparable<ChartDataModel> {
   final int xAxis; // x轴数据
   final double yAxis; // y轴数据
 
@@ -9,4 +9,7 @@ class ChartDataModel {
   String toString() {
     return '{"xAxis":"$xAxis","yAxis":"$yAxis}"}';
   }
+
+  @override
+  int compareTo(ChartDataModel other) => xAxis.compareTo(other.xAxis);
 }

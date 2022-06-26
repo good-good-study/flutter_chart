@@ -14,23 +14,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d12650f-2e61-4730-9c04-bd2598ae0d91" name="Default Changelist" comment="修改ui文件名">
-      <change afterPath="$PROJECT_DIR$/draggable_fixed_bar_chart.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/draggable_fixed_line_chart.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/draggable_line_chart.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/lib/fixed_draggable_line_chart.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/chart/impl/line/fixed_line_canvas_impl.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/chart/impl/line/fixed_line_layout_impl.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/draggable_bar_chart.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/fixed_draggable_bar_chart.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/draggable_chart_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/draggable_chart_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/draggable_line_chart.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/draggable_line_chart.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/lib/example_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/example_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/chart/canvas/axis_canvas_impl.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chart/canvas/axis_canvas_impl.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/chart/common/axis_delegate.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chart/common/axis_delegate.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/chart/impl/line/line_canvas_impl.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chart/impl/line/line_canvas_impl.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/chart/impl/line/line_layout_impl.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chart/impl/line/line_layout_impl.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

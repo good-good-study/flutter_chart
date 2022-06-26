@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 /// 白天行动轨迹、深浅睡眠
-class ChartDataBar {
+class ChartDataBar implements Comparable<ChartDataBar> {
   /// 对应与y轴刻度的索引
   final int index;
 
@@ -25,4 +25,7 @@ class ChartDataBar {
     bool? hasBubble,
   })  : color = color ?? Colors.transparent,
         hasBubble = hasBubble ?? false;
+
+  @override
+  int compareTo(ChartDataBar other) => time.compareTo(other.time);
 }
