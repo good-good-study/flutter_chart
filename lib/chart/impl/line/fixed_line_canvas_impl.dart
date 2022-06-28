@@ -4,6 +4,7 @@ import 'dart:ui';
 import 'package:flutter_chart/chart/canvas/base_canvas.dart';
 import 'package:flutter_chart/chart/canvas/base_chart_canvas.dart';
 import 'package:flutter_chart/chart/common/base_layout_config.dart';
+import 'package:flutter_chart/chart/impl/line/fixed_line_layout_impl.dart';
 import 'package:flutter_chart/chart/model/chart_data_model.dart';
 
 /// 绘制曲线
@@ -15,6 +16,8 @@ class FixedLineCanvasImpl extends BaseCanvas<ChartDataModel> {
     required BaseChartCanvas chartCanvas,
     required BaseLayoutConfig<ChartDataModel> config,
   }) {
+    config as FixedLayoutConfig;
+
     if (config.delegate == null) return;
 
     ///
@@ -38,7 +41,7 @@ class FixedLineCanvasImpl extends BaseCanvas<ChartDataModel> {
       var date = DateTime.fromMillisecondsSinceEpoch(model.xAxis * 1000);
       var hour = date.hour;
       var minute = date.minute;
-      var seconds = date.second + minute * 60 + hour * 3600;
+      var seconds = date.second + minute * 60 + hour * 3600 - config.startTime;
 
       var offset = Offset(
         // bounds.left + itemWidth * index,

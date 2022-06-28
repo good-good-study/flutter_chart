@@ -17,6 +17,8 @@ abstract class BaseLayoutConfig<T> {
   /// x轴刻度的数量，默认取[data.length].
   final int? axisCount;
 
+  ///
+
   /// 坐标原点
   final Offset originOffset;
 

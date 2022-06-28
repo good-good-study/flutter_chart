@@ -1,17 +1,15 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_chart/chart/common/axis_delegate.dart';
 import 'package:flutter_chart/chart/common/base_layout_config.dart';
 import 'package:flutter_chart/chart/common/find.dart';
 import 'package:flutter_chart/chart/common/gesture_delegate.dart';
 import 'package:flutter_chart/chart/common/popup_spec.dart';
-import 'package:flutter_chart/chart/model/chart_data_model.dart';
+import 'package:flutter_chart/chart/model/chart_data_bar.dart';
 import 'package:intl/intl.dart';
 
-/// line charts配置
-class FixedLayoutConfig extends BaseLayoutConfig<ChartDataModel> {
-  FixedLayoutConfig({
+/// bar charts配置
+class FixedBarLayoutConfig extends BaseLayoutConfig<ChartDataBar> {
+  FixedBarLayoutConfig({
     required super.data,
     required super.size,
     DateTime? startDateTime,
@@ -30,17 +28,17 @@ class FixedLayoutConfig extends BaseLayoutConfig<ChartDataModel> {
             );
 
   @override
-  FixedLayoutConfig copyWith({
-    List<ChartDataModel>? data,
-    int? axisCount,
+  FixedBarLayoutConfig copyWith({
+    List<ChartDataBar>? data,
     Size? size,
+    int? axisCount,
     DateTime? startDate,
-    AxisDelegate<ChartDataModel>? delegate,
+    AxisDelegate<ChartDataBar>? delegate,
     GestureDelegate? gestureDelegate,
-    PopupSpec<ChartDataModel>? popupSpec,
+    PopupSpec<ChartDataBar>? popupSpec,
     EdgeInsets? padding,
   }) {
-    return FixedLayoutConfig(
+    return FixedBarLayoutConfig(
       data: data ?? this.data,
       size: size ?? this.size,
       startDateTime: startDate ?? this.startDate,
@@ -54,32 +52,6 @@ class FixedLayoutConfig extends BaseLayoutConfig<ChartDataModel> {
 
   /// x轴的开始时间，默认为当日的凌晨
   final DateTime startDate;
-
-  /// 本组数据的最大值
-  double? _maxValue;
-
-  @override
-  double get maxValue {
-    _maxValue ??= getMaxValue(data);
-    return _maxValue!;
-  }
-
-  @override
-  double getMaxValue(List<ChartDataModel> data) {
-    var value = 0.0;
-    for (var model in data) {
-      value = max(value, model.yAxis);
-    }
-    return value;
-  }
-
-  /// 获取y轴的数据值
-  @override
-  num yAxisValue(ChartDataModel data) => data.yAxis;
-
-  /// 拖拽的最大宽度
-  @override
-  double? get draggableWidth => size.width - padding.horizontal;
 
   /// 开始时间的秒数
   int get startTime {
@@ -103,27 +75,39 @@ class FixedLayoutConfig extends BaseLayoutConfig<ChartDataModel> {
 
   /// 根据手势触摸坐标查找指定数据点位
   @override
-  ChartTargetFind<ChartDataModel>? findTarget(Offset offset) {
-    ChartTargetFind<ChartDataModel>? find;
+  ChartTargetFind<ChartDataBar>? findTarget(Offset offset) {
+    ChartTargetFind<ChartDataBar>? find;
+    if (delegate == null) return null;
     // 横轴两点之间的距离
-    var itemWidth = delegate?.domainPointSpacing ?? 0;
+    var itemWidth = delegate!.domainPointSpacing;
     // 当前拖拽的偏移量
-    var dragX = (gestureDelegate?.offset ?? Offset.zero).dx;
+    var dragX = (gestureDelegate!.offset).dx;
+
+    /// y轴方向每段高度。
+    var itemHeight = bounds.height / delegate!.hintLineNum;
 
     /// 1s时长对应的宽度，全程24小时，两个点之间的跨度为1小时。
     var dw = itemWidth / 3600; // 3600s为1小时
 
+    /// bar高度
+    var barHeight = 9;
+
+    /// bubble 距离bar 右侧的距离
+    var bubblePadding = 5;
+
     for (var index = 0; index < data.length; index++) {
       var model = data[index];
+      if (!model.hasBubble) continue;
 
-      var date = DateTime.fromMillisecondsSinceEpoch(model.xAxis * 1000);
+      var date = DateTime.fromMillisecondsSinceEpoch(model.time * 1000);
       var hour = date.hour;
       var minute = date.minute;
-      var seconds = date.second + minute * 60 + hour * 3600 - startTime;
+      var seconds =
+          date.second + minute * 60 + hour * 3600 + model.duration - startTime;
 
       var curr = Offset(
-        bounds.left + dragX + dw * seconds,
-        bounds.bottom - yAxisValue(model) / maxValue * bounds.height,
+        bounds.left + dragX + seconds * dw - bubblePadding,
+        bounds.top + (model.index + 1) * itemHeight - barHeight,
       );
       if ((curr - offset).dx.abs() < itemWidth / 2) {
         find = ChartTargetFind(model, curr);

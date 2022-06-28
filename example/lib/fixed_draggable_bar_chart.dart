@@ -7,8 +7,8 @@ import 'package:flutter_chart/chart/common/axis_delegate.dart';
 import 'package:flutter_chart/chart/common/base_layout_config.dart';
 import 'package:flutter_chart/chart/common/chart_gesture_view.dart';
 import 'package:flutter_chart/chart/common/popup_spec.dart';
-import 'package:flutter_chart/chart/impl/bar/bar_canvas_impl.dart';
-import 'package:flutter_chart/chart/impl/bar/bar_layout_impl.dart';
+import 'package:flutter_chart/chart/impl/bar/fixed_bar_canvas_impl.dart';
+import 'package:flutter_chart/chart/impl/bar/fixed_bar_layout_impl.dart';
 import 'package:flutter_chart/chart/model/chart_data_bar.dart';
 import 'package:intl/intl.dart';
 
@@ -45,23 +45,23 @@ class _FixedDraggableBarChartState extends State<FixedDraggableBarChart> {
   /// 3 离床
   final data = [
     // 深睡
-    _buildModelBar(index: 0, hour: 0, color: Colors.indigoAccent),
-    _buildModelBar(index: 0, hour: 1, color: Colors.indigoAccent),
-    _buildModelBar(index: 0, hour: 2, color: Colors.indigoAccent),
-    // 浅睡
-    _buildModelBar(index: 1, hour: 3, color: Colors.blue),
-    _buildModelBar(index: 1, hour: 4, color: Colors.blue),
-    _buildModelBar(index: 1, hour: 5, color: Colors.blue),
-    // 离床
-    _buildModelBar(index: 3, hour: 6, color: const Color(0x26000000)),
-    _buildModelBar(index: 3, hour: 7, color: const Color(0x26000000)),
-    _buildModelBar(index: 3, hour: 8, color: const Color(0x26000000)),
-
-    // 清醒
-    _buildModelBar(index: 2, hour: 9, color: Colors.blueGrey),
-
-    _buildModelBar(index: 0, hour: 10, color: Colors.indigoAccent),
-    _buildModelBar(index: 2, hour: 11, color: Colors.blueGrey),
+    // _buildModelBar(index: 0, hour: 0, color: Colors.indigoAccent),
+    // _buildModelBar(index: 0, hour: 1, color: Colors.indigoAccent),
+    // _buildModelBar(index: 0, hour: 2, color: Colors.indigoAccent),
+    // // 浅睡
+    // _buildModelBar(index: 1, hour: 3, color: Colors.blue),
+    // _buildModelBar(index: 1, hour: 4, color: Colors.blue),
+    // _buildModelBar(index: 1, hour: 5, color: Colors.blue),
+    // // 离床
+    // _buildModelBar(index: 3, hour: 6, color: const Color(0x26000000)),
+    // _buildModelBar(index: 3, hour: 7, color: const Color(0x26000000)),
+    // _buildModelBar(index: 3, hour: 8, color: const Color(0x26000000)),
+    //
+    // // 清醒
+    // _buildModelBar(index: 2, hour: 9, color: Colors.blueGrey),
+    //
+    // _buildModelBar(index: 0, hour: 10, color: Colors.indigoAccent),
+    // _buildModelBar(index: 2, hour: 11, color: Colors.blueGrey),
     _buildModelBar(index: 3, hour: 12, color: const Color(0x26000000)),
 
     _buildModelBar(index: 2, hour: 14, color: Colors.blueGrey),
@@ -77,6 +77,10 @@ class _FixedDraggableBarChartState extends State<FixedDraggableBarChart> {
   Size? size;
   final margin = const EdgeInsets.all(10);
 
+  /// x轴开始时间
+  static final now = DateTime.now();
+  var startDate = DateTime(now.year, now.month, now.day, 12);
+
   @override
   Widget build(BuildContext context) {
     var pixel = MediaQuery.of(context).size.width;
@@ -90,9 +94,10 @@ class _FixedDraggableBarChartState extends State<FixedDraggableBarChart> {
         borderRadius: BorderRadius.circular(8),
       ),
       child: ChartGestureView<ChartDataBar>(
-        initConfig: BarLayoutConfig(
+        initConfig: FixedBarLayoutConfig(
           data: data,
-          axisCount: 24,
+          axisCount: 25,
+          startDateTime: startDate,
           size: Size(pixel - margin.horizontal, 264),
           delegate: CommonBarAxisDelegate.copyWith(
             xAxisFormatter: _xAxisFormatter,
@@ -129,7 +134,7 @@ class _FixedDraggableBarChartState extends State<FixedDraggableBarChart> {
           size: size!,
           painter: BarChart(
             data: data,
-            contentCanvas: BarCanvasImpl(),
+            contentCanvas: FixedBarCanvasImpl(),
             layoutConfig: newConfig as BaseLayoutConfig<ChartDataBar>,
           ),
         ),
