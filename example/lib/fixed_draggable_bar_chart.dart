@@ -100,7 +100,6 @@ class _FixedDraggableBarChartState extends State<FixedDraggableBarChart> {
           startDateTime: startDate,
           size: Size(pixel - margin.horizontal, 264),
           delegate: CommonBarAxisDelegate.copyWith(
-            xAxisFormatter: _xAxisFormatter,
             yAxisFormatter: _yAxisFormatter,
             axisLineStyle: const LineStyle(
               color: Color(0xFFE5E5E5),
@@ -167,13 +166,6 @@ class _FixedDraggableBarChartState extends State<FixedDraggableBarChart> {
           style: TextStyle(fontSize: 12, color: Colors.deepPurple),
         ),
       ],
-    );
-  }
-
-  /// x轴坐标数据格式化
-  String _xAxisFormatter(int index) {
-    return DateFormat("HH:mm").format(
-      DateTime.fromMillisecondsSinceEpoch(data[index].time * 1000),
     );
   }
 

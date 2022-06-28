@@ -14,13 +14,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d12650f-2e61-4730-9c04-bd2598ae0d91" name="Default Changelist" comment="修改ui文件名">
-      <change afterPath="$PROJECT_DIR$/lib/chart/impl/bar/fixed_bar_canvas_impl.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/chart/impl/bar/fixed_bar_layout_impl.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/lib/fixed_draggable_bar_chart.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/fixed_draggable_bar_chart.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/lib/fixed_draggable_line_chart.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/fixed_draggable_line_chart.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/chart/common/base_layout_config.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chart/common/base_layout_config.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/chart/impl/line/fixed_line_canvas_impl.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chart/impl/line/fixed_line_canvas_impl.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/chart/impl/line/fixed_line_layout_impl.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chart/impl/line/fixed_line_layout_impl.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,10 +53,10 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/example/lib/example_page.dart" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/example/lib/draggable_line_chart.dart" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lib/chart/impl/line/line_layout_impl.dart" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/example/lib/example_page.dart" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lib/chart/common/base_layout_config.dart" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/example/lib/draggable_line_chart.dart" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">

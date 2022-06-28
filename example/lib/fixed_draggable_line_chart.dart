@@ -91,7 +91,6 @@ class _FixedDraggableLineChartState extends State<FixedDraggableLineChart> {
           startDateTime: startDate,
           size: Size(pixel - margin.horizontal, 264),
           delegate: CommonLineAxisDelegate.copyWith(
-            xAxisFormatter: _xAxisFormatter,
             yAxisFormatter: _yAxisFormatter,
           ),
           popupSpec: CommonPopupSpec.copyWith(
@@ -143,12 +142,6 @@ class _FixedDraggableLineChartState extends State<FixedDraggableLineChart> {
         ),
       ],
     );
-  }
-
-  /// x轴坐标数据格式化
-  String _xAxisFormatter(int index) {
-    return DateFormat('HH:mm')
-        .format(DateTime.fromMillisecondsSinceEpoch(data[index].xAxis * 1000));
   }
 
   /// y轴坐标数据格式化

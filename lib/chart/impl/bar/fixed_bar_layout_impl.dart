@@ -64,13 +64,15 @@ class FixedBarLayoutConfig extends BaseLayoutConfig<ChartDataBar> {
   /// 获取x轴指定位置的值 07：00
   /// 优先级比[AxisDelegate.xAxisFormatter]高。
   @override
-  String xAxisValue(int index) {
+  String? xAxisValue(int index) {
     var hour = index;
     var date = DateTime(startDate.year, startDate.month, startDate.day, hour);
-
     date = date.add(Duration(seconds: startTime));
-
-    return DateFormat('HH:mm').format(date);
+    var str = DateFormat('HH:mm').format(date);
+    if ('00:00' == str && date.day != startDate.day) {
+      return DateFormat('MM-dd').format(date);
+    }
+    return str;
   }
 
   /// 根据手势触摸坐标查找指定数据点位
