@@ -82,20 +82,14 @@ class FixedLayoutConfig extends BaseLayoutConfig<ChartDataModel> {
   double? get draggableWidth => size.width - padding.horizontal;
 
   /// 开始时间的秒数
-  int get startTime {
-    var hour = startDate.hour;
-    var minute = startDate.minute;
-    var seconds = startDate.second + minute * 60 + hour * 3600;
-    return seconds;
-  }
+  int get startTime => startDate.millisecondsSinceEpoch ~/ 1000;
 
   /// 获取x轴指定位置的值 07：00
   /// 优先级比[AxisDelegate.xAxisFormatter]高。
   @override
   String? xAxisValue(int index) {
-    var hour = index;
-    var date = DateTime(startDate.year, startDate.month, startDate.day, hour);
-    date = date.add(Duration(seconds: startTime));
+    var milliseconds = (startTime + 3600 * index) * 1000;
+    var date = DateTime.fromMillisecondsSinceEpoch(milliseconds);
     var str = DateFormat('HH:mm').format(date);
     if ('00:00' == str && date.day != startDate.day) {
       return DateFormat('MM-dd').format(date);
@@ -117,12 +111,7 @@ class FixedLayoutConfig extends BaseLayoutConfig<ChartDataModel> {
 
     for (var index = 0; index < data.length; index++) {
       var model = data[index];
-
-      var date = DateTime.fromMillisecondsSinceEpoch(model.xAxis * 1000);
-      var hour = date.hour;
-      var minute = date.minute;
-      var seconds = date.second + minute * 60 + hour * 3600 - startTime;
-
+      var seconds = model.xAxis - startTime;
       var curr = Offset(
         bounds.left + dragX + dw * seconds,
         bounds.bottom - yAxisValue(model) / maxValue * bounds.height,

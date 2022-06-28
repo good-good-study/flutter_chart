@@ -37,15 +37,8 @@ class FixedLineCanvasImpl extends BaseCanvas<ChartDataModel> {
 
     for (var index = 0; index < data.length; index++) {
       var model = data[index];
-
-      var date = DateTime.fromMillisecondsSinceEpoch(model.xAxis * 1000);
-      // var hour = date.hour;
-      // var minute = date.minute;
-      // var seconds = date.second + minute * 60 + hour * 3600 - config.startTime;
-      var seconds = date.millisecondsSinceEpoch ~/ 1000 - config.startTime;
-
+      var seconds = max(0, model.xAxis - config.startTime);
       var offset = Offset(
-        // bounds.left + itemWidth * index,
         bounds.left + dw * seconds,
         bounds.bottom - (config.yAxisValue(model) / maxValue) * maxHeight,
       );

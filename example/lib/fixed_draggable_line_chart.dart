@@ -21,7 +21,7 @@ class FixedDraggableLineChart extends StatefulWidget {
 }
 
 class _FixedDraggableLineChartState extends State<FixedDraggableLineChart> {
-  static int hour(int hour) => 1655913600 + 3600 * hour;
+  static int hour(int hour) => 1656302400 + 3600 * hour;
 
   /// 数据源
   final data = [
@@ -47,23 +47,26 @@ class _FixedDraggableLineChartState extends State<FixedDraggableLineChart> {
     // ChartDataModel(xAxis: hour(9), yAxis: 88),
     // ChartDataModel(xAxis: hour(10), yAxis: 40),
     // ChartDataModel(xAxis: hour(11), yAxis: 0),
-    ChartDataModel(xAxis: hour(12), yAxis: 0),
-    ChartDataModel(xAxis: hour(12) + 60 * 10, yAxis: 1),
-    ChartDataModel(xAxis: hour(12) + 60 * 20, yAxis: 2),
-    ChartDataModel(xAxis: hour(12) + 60 * 30, yAxis: 3),
-    ChartDataModel(xAxis: hour(12) + 60 * 40, yAxis: 4),
-    ChartDataModel(xAxis: hour(12) + 60 * 50, yAxis: 5),
-    ChartDataModel(xAxis: hour(13), yAxis: 0),
-    ChartDataModel(xAxis: hour(14), yAxis: 19),
-    ChartDataModel(xAxis: hour(15), yAxis: 0),
-    ChartDataModel(xAxis: hour(16), yAxis: 39),
-    ChartDataModel(xAxis: hour(17), yAxis: 10),
-    ChartDataModel(xAxis: hour(18), yAxis: 0),
-    ChartDataModel(xAxis: hour(19), yAxis: 100),
-    ChartDataModel(xAxis: hour(20), yAxis: 0),
-    ChartDataModel(xAxis: hour(21), yAxis: 0),
-    ChartDataModel(xAxis: hour(22), yAxis: 0),
-    ChartDataModel(xAxis: hour(23), yAxis: 0),
+    ChartDataModel(xAxis: hour(0), yAxis: 0),
+    ChartDataModel(xAxis: hour(0) + 60 * 10, yAxis: 1),
+    ChartDataModel(xAxis: hour(0) + 60 * 20, yAxis: 2),
+    ChartDataModel(xAxis: hour(0) + 60 * 30, yAxis: 3),
+    ChartDataModel(xAxis: hour(0) + 60 * 40, yAxis: 4),
+    ChartDataModel(xAxis: hour(0) + 60 * 50, yAxis: 5),
+    ChartDataModel(xAxis: hour(1), yAxis: 0),
+    ChartDataModel(xAxis: hour(2), yAxis: 19),
+    ChartDataModel(xAxis: hour(3), yAxis: 0),
+    ChartDataModel(xAxis: hour(4), yAxis: 39),
+    ChartDataModel(xAxis: hour(5), yAxis: 10),
+    ChartDataModel(xAxis: hour(6), yAxis: 0),
+    ChartDataModel(xAxis: hour(7), yAxis: 100),
+    ChartDataModel(xAxis: hour(8), yAxis: 0),
+    ChartDataModel(xAxis: hour(9), yAxis: 0),
+    ChartDataModel(xAxis: hour(10), yAxis: 0),
+    ChartDataModel(xAxis: hour(11), yAxis: 0),
+    ChartDataModel(xAxis: hour(12), yAxis: 2),
+    ChartDataModel(xAxis: hour(13), yAxis: 17),
+    // ChartDataModel(xAxis: hour(24), yAxis: 8),
   ];
 
   Size? size;
@@ -71,7 +74,7 @@ class _FixedDraggableLineChartState extends State<FixedDraggableLineChart> {
 
   /// x轴开始时间
   static final now = DateTime.now();
-  var startDate = DateTime(now.year, now.month, now.day, 12);
+  var startDate = DateTime.fromMillisecondsSinceEpoch(1656302400 * 1000);
 
   @override
   Widget build(BuildContext context) {
@@ -113,7 +116,7 @@ class _FixedDraggableLineChartState extends State<FixedDraggableLineChart> {
 
   /// 悬浮框内容
   InlineSpan _textFormatter(ChartDataModel data) {
-    var xAxis = DateFormat('HH:mm')
+    var xAxis = DateFormat('MM-dd HH:mm')
         .format(DateTime.fromMillisecondsSinceEpoch(data.xAxis * 1000));
 
     /// 是否为异常数据

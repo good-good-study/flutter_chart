@@ -1,7 +1,7 @@
 /// Chart 数据源
 class ChartDataModel implements Comparable<ChartDataModel> {
-  final int xAxis; // x轴数据
   final double yAxis; // y轴数据
+  final int xAxis; // x轴数据,单位是秒，时间戳
 
   const ChartDataModel({required this.yAxis, required this.xAxis});
 
