@@ -75,6 +75,10 @@ class FixedBarLayoutConfig extends BaseLayoutConfig<ChartDataBar> {
     return str;
   }
 
+  /// 拖拽的最大宽度
+  @override
+  double? get draggableWidth => size.width - padding.horizontal;
+
   /// 根据手势触摸坐标查找指定数据点位
   @override
   ChartTargetFind<ChartDataBar>? findTarget(Offset offset) {

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chart/chart/common/style.dart';
 
@@ -95,29 +96,42 @@ abstract class BaseLayoutConfig<T> {
         // 坐标系原点
         originOffset = _initOriginOffset(size: size, padding: padding),
         // 最右边的点，包括不可见的坐标（即：可拖动查看的最右边的点坐标）
-        endOffset = data.isEmpty
-            ? _initOriginOffset(size: size, padding: padding)
-            : _initEndOffset(
-                length: axisCount ?? data.length,
-                size: size,
-                delegate: delegate,
-                padding: padding,
-              ),
+        // endOffset = data.isEmpty
+        //     ? _initOriginOffset(size: size, padding: padding)
+        //     : _initEndOffset(
+        //         length: axisCount ?? data.length,
+        //         size: size,
+        //         delegate: delegate,
+        //         padding: padding,
+        //       ),
+        endOffset = _initEndOffset(
+          length: axisCount ?? data.length,
+          size: size,
+          delegate: delegate,
+          padding: padding,
+        ),
         // 初始化手势识别器
         gestureDelegate = gestureDelegate?.copyWith(
           width: size.width - padding.horizontal,
           originOffset: _initOriginOffset(size: size, padding: padding),
-          endOffset: data.isEmpty
-              ? Offset(
-                  padding.left,
-                  size.height - padding.bottom,
-                )
-              : _initEndOffset(
-                  length: axisCount ?? data.length,
-                  size: size,
-                  delegate: delegate,
-                  padding: padding,
-                ),
+          endOffset: _initEndOffset(
+            length: axisCount ?? data.length,
+            size: size,
+            delegate: delegate,
+            padding: padding,
+          ),
+
+          // endOffset: data.isEmpty
+          //     ? Offset(
+          //         padding.left,
+          //         size.height - padding.bottom,
+          //       )
+          //     : _initEndOffset(
+          //         length: axisCount ?? data.length,
+          //         size: size,
+          //         delegate: delegate,
+          //         padding: padding,
+          //       ),
         );
 }
 
@@ -130,6 +144,8 @@ Offset _initOriginOffset({
     padding.left,
     size.height - padding.bottom,
   );
+  print('原点 : $offset');
+
   return offset;
 }
 
@@ -144,5 +160,8 @@ Offset _initEndOffset<T, V>({
     length * (delegate?.domainPointSpacing ?? kDomainPointSpacing),
     size.height - padding.bottom,
   );
+  if (kDebugMode) {
+    print('最右侧 : $offset');
+  }
   return offset;
 }

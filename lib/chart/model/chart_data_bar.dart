@@ -31,6 +31,6 @@ class ChartDataBar implements Comparable<ChartDataBar> {
 
   @override
   String toString() {
-    return '{"index":"$index","time":"$time","hasBubble":"$hasBubble","color":"$color"}';
+    return '{"index":"$index","time":"$time","duration":"$duration","hasBubble":"$hasBubble","color":"$color"}';
   }
 }
