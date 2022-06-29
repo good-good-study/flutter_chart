@@ -74,5 +74,33 @@ class LineCanvasImpl extends BaseCanvas<ChartDataModel> {
         ),
       );
     }
+
+    /// 绘制气泡
+    var style = config.popupSpec?.bubbleSpec;
+    if (style == null) return;
+    for (var index = 0; index < data.length; index++) {
+      var model = data[index];
+      if (model.hasBubble) {
+        var pointer = Offset(
+          bounds.left + itemWidth * index,
+          bounds.bottom - (config.yAxisValue(model) / maxValue) * maxHeight,
+        );
+        chartCanvas.drawPoint(
+          canvas: canvas,
+          offset: pointer,
+          radius: style.radius,
+          fill: style.fill,
+          strokeWidthPx: style.strokeWidthPx,
+          stroke: style.stroke,
+          translate: gestureDelegate?.offset,
+          clipBounds: Rectangle(
+            bounds.left - (gestureDelegate?.offset.dx ?? 0),
+            bounds.top - config.padding.top,
+            bounds.width,
+            bounds.height + config.padding.bottom,
+          ),
+        );
+      }
+    }
   }
 }

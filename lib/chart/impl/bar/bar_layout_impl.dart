@@ -55,8 +55,10 @@ class BarLayoutConfig extends BaseLayoutConfig<ChartDataBar> {
   ChartTargetFind<ChartDataBar>? findTarget(Offset offset) {
     ChartTargetFind<ChartDataBar>? find;
     if (delegate == null) return null;
-    // 横轴两点之间的距离
+    // 两点之间的距离
     var itemWidth = delegate!.domainPointSpacing;
+    // 选择点的最小匹配宽度
+    var minSelectWidth = delegate!.minSelectWidth ?? itemWidth;
     // 当前拖拽的偏移量
     var dragX = (gestureDelegate!.offset).dx;
 
@@ -76,7 +78,7 @@ class BarLayoutConfig extends BaseLayoutConfig<ChartDataBar> {
       var model = data[index];
       if (!model.hasBubble) continue;
 
-      var date = DateTime.fromMillisecondsSinceEpoch(model.time * 1000);
+      var date = model.time;
       var hour = date.hour;
       var minute = date.minute;
       var seconds = date.second + minute * 60 + hour * 3600 + model.duration;
@@ -85,7 +87,7 @@ class BarLayoutConfig extends BaseLayoutConfig<ChartDataBar> {
         bounds.left + dragX + seconds * dw - bubblePadding,
         bounds.top + (model.index + 1) * itemHeight - barHeight,
       );
-      if ((curr - offset).dx.abs() < itemWidth / 2) {
+      if ((curr - offset).dx.abs() <= minSelectWidth) {
         find = ChartTargetFind(model, curr);
         break;
       }

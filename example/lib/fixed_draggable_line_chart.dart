@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:example/style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chart/chart/chart/line_chart.dart';
@@ -21,59 +23,73 @@ class FixedDraggableLineChart extends StatefulWidget {
 }
 
 class _FixedDraggableLineChartState extends State<FixedDraggableLineChart> {
-  static int hour(int hour) => 1656302400 + 3600 * hour;
+  static DateTime hour({int hour = 0, int duration = 0}) {
+    var milliseconds = (1656302400 + 3600 * hour + duration) * 1000;
+    return DateTime.fromMillisecondsSinceEpoch(milliseconds);
+  }
 
   /// 数据源
   final data = [
-    // ChartDataModel(xAxis: hour(0), yAxis: 2),
-    // ChartDataModel(xAxis: hour(1), yAxis: 64),
-    // ChartDataModel(xAxis: hour(2), yAxis: 60),
-    // ChartDataModel(xAxis: hour(3), yAxis: 40),
-    // ChartDataModel(xAxis: hour(3) + 60 * 10, yAxis: 42),
-    // ChartDataModel(xAxis: hour(3) + 60 * 20, yAxis: 42),
-    // ChartDataModel(xAxis: hour(3) + 60 * 30, yAxis: 40),
-    // ChartDataModel(xAxis: hour(3) + 60 * 45, yAxis: 44),
-    // ChartDataModel(xAxis: hour(3) + 60 * 50, yAxis: 46),
-    // ChartDataModel(xAxis: hour(4), yAxis: 48),
-    // ChartDataModel(xAxis: hour(5), yAxis: 46),
-    // ChartDataModel(xAxis: hour(5) + 60 * 5, yAxis: 44),
-    // ChartDataModel(xAxis: hour(5) + 60 * 25, yAxis: 42),
-    // ChartDataModel(xAxis: hour(5) + 60 * 35, yAxis: 42),
-    // ChartDataModel(xAxis: hour(5) + 60 * 40, yAxis: 40),
-    // ChartDataModel(xAxis: hour(5) + 60 * 47, yAxis: 38),
-    // ChartDataModel(xAxis: hour(6), yAxis: 32),
-    // ChartDataModel(xAxis: hour(7), yAxis: 44),
-    // ChartDataModel(xAxis: hour(8), yAxis: 40),
-    // ChartDataModel(xAxis: hour(9), yAxis: 88),
-    // ChartDataModel(xAxis: hour(10), yAxis: 40),
-    // ChartDataModel(xAxis: hour(11), yAxis: 0),
-    ChartDataModel(xAxis: hour(0), yAxis: 0),
-    ChartDataModel(xAxis: hour(0) + 60 * 10, yAxis: 1),
-    ChartDataModel(xAxis: hour(0) + 60 * 20, yAxis: 2),
-    ChartDataModel(xAxis: hour(0) + 60 * 30, yAxis: 3),
-    ChartDataModel(xAxis: hour(0) + 60 * 40, yAxis: 4),
-    ChartDataModel(xAxis: hour(0) + 60 * 50, yAxis: 5),
-    ChartDataModel(xAxis: hour(1), yAxis: 0),
-    ChartDataModel(xAxis: hour(2), yAxis: 19),
-    ChartDataModel(xAxis: hour(3), yAxis: 0),
-    ChartDataModel(xAxis: hour(4), yAxis: 39),
-    ChartDataModel(xAxis: hour(5), yAxis: 10),
-    ChartDataModel(xAxis: hour(6), yAxis: 0),
-    ChartDataModel(xAxis: hour(7), yAxis: 100),
-    ChartDataModel(xAxis: hour(8), yAxis: 0),
-    ChartDataModel(xAxis: hour(9), yAxis: 0),
-    ChartDataModel(xAxis: hour(10), yAxis: 0),
-    ChartDataModel(xAxis: hour(11), yAxis: 0),
-    ChartDataModel(xAxis: hour(12), yAxis: 2),
-    ChartDataModel(xAxis: hour(13), yAxis: 17),
-    // ChartDataModel(xAxis: hour(24), yAxis: 8),
+    ChartDataModel(
+      xAxis: hour(hour: 0),
+      yAxis: 0,
+      hasBubble: Random(0).nextBool(),
+    ),
+    ChartDataModel(xAxis: hour(hour: 0, duration: 60 * 10), yAxis: 1),
+    ChartDataModel(xAxis: hour(hour: 0, duration: 60 * 20), yAxis: 1),
+    ChartDataModel(xAxis: hour(hour: 0, duration: 60 * 30), yAxis: 1),
+    ChartDataModel(xAxis: hour(hour: 0, duration: 60 * 40), yAxis: 1),
+    ChartDataModel(xAxis: hour(hour: 0, duration: 60 * 50), yAxis: 1),
+    ChartDataModel(
+      xAxis: hour(hour: 1),
+      yAxis: 1,
+      hasBubble: Random(1).nextBool(),
+    ),
+    ChartDataModel(
+      xAxis: hour(hour: 2),
+      yAxis: 98,
+      hasBubble: Random(2).nextBool(),
+    ),
+    ChartDataModel(
+      xAxis: hour(hour: 3),
+      yAxis: 11,
+      hasBubble: Random(3).nextBool(),
+    ),
+    ChartDataModel(
+      xAxis: hour(hour: 4),
+      yAxis: 56,
+      hasBubble: Random(4).nextBool(),
+    ),
+    ChartDataModel(
+      xAxis: hour(hour: 5),
+      yAxis: 100,
+      hasBubble: Random(5).nextBool(),
+    ),
+    ChartDataModel(xAxis: hour(hour: 6), yAxis: 88),
+    ChartDataModel(
+      xAxis: hour(hour: 7),
+      yAxis: 33,
+      hasBubble: Random(7).nextBool(),
+    ),
+    ChartDataModel(
+      xAxis: hour(hour: 8),
+      yAxis: 55,
+      hasBubble: Random(8).nextBool(),
+    ),
+    ChartDataModel(xAxis: hour(hour: 9), yAxis: 77),
+    ChartDataModel(
+      xAxis: hour(hour: 10),
+      yAxis: 34,
+      hasBubble: Random(10).nextBool(),
+    ),
+    ChartDataModel(xAxis: hour(hour: 11), yAxis: 2),
+    ChartDataModel(xAxis: hour(hour: 12), yAxis: 7),
   ];
 
   Size? size;
   final margin = const EdgeInsets.symmetric(horizontal: 10);
 
   /// x轴开始时间
-  static final now = DateTime.now();
   var startDate = DateTime.fromMillisecondsSinceEpoch(1656302400 * 1000);
 
   @override
@@ -95,11 +111,13 @@ class _FixedDraggableLineChartState extends State<FixedDraggableLineChart> {
           size: Size(pixel - margin.horizontal, 264),
           delegate: CommonLineAxisDelegate.copyWith(
             yAxisFormatter: _yAxisFormatter,
+            minSelectWidth: 5,
+            // domainPointSpacing: 128,
           ),
           popupSpec: CommonPopupSpec.copyWith(
             textFormatter: _textFormatter,
             // popupShouldDraw: _popupShouldShow,
-            // bubbleShouldDraw: _popupBubbleShouldShow,
+            bubbleShouldDraw: _popupBubbleShouldShow,
           ),
         ),
         builder: (_, newConfig) => CustomPaint(
@@ -116,12 +134,11 @@ class _FixedDraggableLineChartState extends State<FixedDraggableLineChart> {
 
   /// 悬浮框内容
   InlineSpan _textFormatter(ChartDataModel data) {
-    var xAxis = DateFormat('MM-dd HH:mm')
-        .format(DateTime.fromMillisecondsSinceEpoch(data.xAxis * 1000));
+    var xAxis = DateFormat('MM-dd HH:mm').format(data.xAxis);
 
     /// 是否为异常数据
     var normalValue = 60;
-    bool isException = data.yAxis > normalValue;
+    bool isException = data.hasBubble;
     Color color = isException ? Colors.red : Colors.black;
     return TextSpan(
       text: '$xAxis\n',
@@ -133,9 +150,9 @@ class _FixedDraggableLineChartState extends State<FixedDraggableLineChart> {
         ),
         TextSpan(
           text: isException ? normalValue.toString() : '${data.yAxis.toInt()}',
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 16,
-            color: Colors.red,
+            color: color,
             fontWeight: FontWeight.w500,
           ),
         ),
@@ -151,4 +168,7 @@ class _FixedDraggableLineChartState extends State<FixedDraggableLineChart> {
   String _yAxisFormatter(num data, int index) {
     return data.toInt().toString();
   }
+
+  /// 是否显示气泡
+  bool _popupBubbleShouldShow(ChartDataModel data) => data.hasBubble;
 }

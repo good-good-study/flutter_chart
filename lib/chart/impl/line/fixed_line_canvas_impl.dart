@@ -37,7 +37,7 @@ class FixedLineCanvasImpl extends BaseCanvas<ChartDataModel> {
 
     for (var index = 0; index < data.length; index++) {
       var model = data[index];
-      var seconds = max(0, model.xAxis - config.startTime);
+      var seconds = model.xAxis.difference(config.startDate).inSeconds;
       var offset = Offset(
         bounds.left + dw * seconds,
         bounds.bottom - (config.yAxisValue(model) / maxValue) * maxHeight,
@@ -79,6 +79,36 @@ class FixedLineCanvasImpl extends BaseCanvas<ChartDataModel> {
           bounds.height + lineHeight * 2,
         ),
       );
+    }
+
+    /// 绘制气泡
+    var style = config.popupSpec?.bubbleSpec;
+    if (style == null) return;
+    for (var index = 0; index < data.length; index++) {
+      var model = data[index];
+      if (model.hasBubble) {
+        var model = data[index];
+        var seconds = model.xAxis.difference(config.startDate).inSeconds;
+        var pointer = Offset(
+          bounds.left + dw * seconds,
+          bounds.bottom - (config.yAxisValue(model) / maxValue) * maxHeight,
+        );
+        chartCanvas.drawPoint(
+          canvas: canvas,
+          offset: pointer,
+          radius: style.radius,
+          fill: style.fill,
+          strokeWidthPx: style.strokeWidthPx,
+          stroke: style.stroke,
+          translate: gestureDelegate?.offset,
+          clipBounds: Rectangle(
+            bounds.left - (gestureDelegate?.offset.dx ?? 0),
+            bounds.top - config.padding.top,
+            bounds.width,
+            bounds.height + config.padding.bottom,
+          ),
+        );
+      }
     }
   }
 }

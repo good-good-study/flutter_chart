@@ -40,7 +40,7 @@ class BarCanvasImpl extends BaseCanvas<ChartDataBar> {
     for (var index = 0; index < data.length; index++) {
       var model = data[index];
 
-      var date = DateTime.fromMillisecondsSinceEpoch(model.time * 1000);
+      var date = model.time;
       var hour = date.hour;
       var minute = date.minute;
       var begin = date.second + minute * 60 + hour * 3600;

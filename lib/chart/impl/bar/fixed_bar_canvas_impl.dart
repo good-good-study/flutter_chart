@@ -42,15 +42,9 @@ class FixedBarCanvasImpl extends BaseCanvas<ChartDataBar> {
 
     for (var index = 0; index < data.length; index++) {
       var model = data[index];
-
-      var date = DateTime.fromMillisecondsSinceEpoch(model.time * 1000);
-      var hour = date.hour;
-      var minute = date.minute;
-      var begin = date.second + minute * 60 + hour * 3600 - config.startTime;
-
+      int seconds = model.time.difference(config.startDate).inSeconds;
       var offset = Offset(
-        // bounds.left + itemWidth * index,
-        bounds.left + begin * dw,
+        bounds.left + seconds * dw,
         bounds.top + (model.index + 1) * itemHeight - barHeight,
       );
 

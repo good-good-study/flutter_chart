@@ -101,8 +101,10 @@ class FixedLayoutConfig extends BaseLayoutConfig<ChartDataModel> {
   @override
   ChartTargetFind<ChartDataModel>? findTarget(Offset offset) {
     ChartTargetFind<ChartDataModel>? find;
-    // 横轴两点之间的距离
-    var itemWidth = delegate?.domainPointSpacing ?? 0;
+    // 两点之间的距离
+    var itemWidth = delegate!.domainPointSpacing;
+    // 选择点的最小匹配宽度
+    var minSelectWidth = delegate!.minSelectWidth ?? itemWidth;
     // 当前拖拽的偏移量
     var dragX = (gestureDelegate?.offset ?? Offset.zero).dx;
 
@@ -111,12 +113,12 @@ class FixedLayoutConfig extends BaseLayoutConfig<ChartDataModel> {
 
     for (var index = 0; index < data.length; index++) {
       var model = data[index];
-      var seconds = model.xAxis - startTime;
+      var seconds = model.xAxis.difference(startDate).inSeconds;
       var curr = Offset(
         bounds.left + dragX + dw * seconds,
         bounds.bottom - yAxisValue(model) / maxValue * bounds.height,
       );
-      if ((curr - offset).dx.abs() < itemWidth / 2) {
+      if ((curr - offset).dx.abs() <= minSelectWidth) {
         find = ChartTargetFind(model, curr);
         break;
       }

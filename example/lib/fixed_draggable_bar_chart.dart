@@ -32,7 +32,8 @@ class _FixedDraggableBarChartState extends State<FixedDraggableBarChart> {
     return ChartDataBar(
       index: index,
       color: color,
-      time: 1655913600 + 3600 * hour,
+      time: DateTime.fromMillisecondsSinceEpoch(
+          (1655913600 + 3600 * hour) * 1000),
       duration: 60 * 60,
       hasBubble: Random(hour).nextBool(),
     );
@@ -44,29 +45,9 @@ class _FixedDraggableBarChartState extends State<FixedDraggableBarChart> {
   /// 2 清醒
   /// 3 离床
   final data = [
-    // 深睡
-    // _buildModelBar(index: 0, hour: 0, color: Colors.indigoAccent),
-    // _buildModelBar(index: 0, hour: 1, color: Colors.indigoAccent),
-    // _buildModelBar(index: 0, hour: 2, color: Colors.indigoAccent),
-    // // 浅睡
-    // _buildModelBar(index: 1, hour: 3, color: Colors.blue),
-    // _buildModelBar(index: 1, hour: 4, color: Colors.blue),
-    // _buildModelBar(index: 1, hour: 5, color: Colors.blue),
-    // // 离床
-    // _buildModelBar(index: 3, hour: 6, color: const Color(0x26000000)),
-    // _buildModelBar(index: 3, hour: 7, color: const Color(0x26000000)),
-    // _buildModelBar(index: 3, hour: 8, color: const Color(0x26000000)),
-    //
-    // // 清醒
-    // _buildModelBar(index: 2, hour: 9, color: Colors.blueGrey),
-    //
-    // _buildModelBar(index: 0, hour: 10, color: Colors.indigoAccent),
-    // _buildModelBar(index: 2, hour: 11, color: Colors.blueGrey),
     _buildModelBar(index: 3, hour: 12, color: const Color(0x26000000)),
-
     _buildModelBar(index: 2, hour: 14, color: Colors.blueGrey),
     _buildModelBar(index: 3, hour: 18, color: const Color(0x26000000)),
-
     _buildModelBar(index: 2, hour: 20, color: Colors.blueGrey),
     _buildModelBar(index: 0, hour: 21, color: Colors.indigoAccent),
     _buildModelBar(index: 3, hour: 22, color: const Color(0x26000000)),
@@ -145,7 +126,7 @@ class _FixedDraggableBarChartState extends State<FixedDraggableBarChart> {
   InlineSpan _textFormatter(ChartDataBar data) {
     return TextSpan(
       text: '${DateFormat('HH:mm').format(
-        DateTime.fromMillisecondsSinceEpoch((data.time + data.duration) * 1000),
+        data.time.add(Duration(seconds: data.duration)),
       )}\n',
       style: const TextStyle(fontSize: 12, color: Colors.black),
       children: [

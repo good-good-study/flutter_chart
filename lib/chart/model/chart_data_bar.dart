@@ -6,7 +6,7 @@ class ChartDataBar implements Comparable<ChartDataBar> {
   final int index;
 
   /// 开始时间
-  final int time;
+  final DateTime time;
 
   /// 持续时长
   final int duration;
@@ -28,4 +28,9 @@ class ChartDataBar implements Comparable<ChartDataBar> {
 
   @override
   int compareTo(ChartDataBar other) => time.compareTo(other.time);
+
+  @override
+  String toString() {
+    return '{"index":"$index","time":"$time","hasBubble":"$hasBubble","color":"$color"}';
+  }
 }

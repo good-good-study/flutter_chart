@@ -40,6 +40,9 @@ class AxisDelegate<T> {
   /// 两点之间的距离
   final double domainPointSpacing;
 
+  /// 选中点时的最小匹配宽度
+  final double? minSelectWidth;
+
   /// x轴与文字间的距离
   final double labelVerticalSpacing;
 
@@ -73,6 +76,7 @@ class AxisDelegate<T> {
     this.hintLineNum = 4,
     this.xAxisFormatter,
     this.yAxisFormatter,
+    this.minSelectWidth = kDomainPointSpacing,
     this.domainPointSpacing = kDomainPointSpacing,
     this.labelHorizontalSpacing = kLabelHorizontalSpacing,
     this.labelVerticalSpacing = kLabelVerticalSpacing,
@@ -93,6 +97,7 @@ class AxisDelegate<T> {
     AxisFormatter? xAxisFormatter,
     AxisYFormatter? yAxisFormatter,
     double? domainPointSpacing,
+    double? minSelectWidth,
     double? labelVerticalSpacing,
     double? labelHorizontalSpacing,
     LabelStyle? labelStyle,
@@ -112,6 +117,7 @@ class AxisDelegate<T> {
       xAxisFormatter: xAxisFormatter ?? this.xAxisFormatter,
       yAxisFormatter: yAxisFormatter ?? this.yAxisFormatter,
       domainPointSpacing: domainPointSpacing ?? this.domainPointSpacing,
+      minSelectWidth: minSelectWidth ?? this.minSelectWidth,
       labelHorizontalSpacing:
           labelHorizontalSpacing ?? this.labelHorizontalSpacing,
       labelVerticalSpacing: labelVerticalSpacing ?? this.labelVerticalSpacing,

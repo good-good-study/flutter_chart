@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:example/style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chart/chart/chart/line_chart.dart';
@@ -19,19 +21,58 @@ class DraggableLineChart extends StatefulWidget {
 }
 
 class _DraggableLineChartState extends State<DraggableLineChart> {
-  static int hour(int hour) => 1655913600 + 3600 * hour;
+  static DateTime hour({int hour = 0}) {
+    var milliseconds = (1656302400 + 3600 * hour) * 1000;
+    return DateTime.fromMillisecondsSinceEpoch(milliseconds);
+  }
 
   /// 数据源
   final data = [
-    ChartDataModel(xAxis: hour(7), yAxis: 8),
-    ChartDataModel(xAxis: hour(8), yAxis: 8),
-    ChartDataModel(xAxis: hour(9), yAxis: 8),
-    ChartDataModel(xAxis: hour(10), yAxis: 12),
-    ChartDataModel(xAxis: hour(11), yAxis: 8),
-    ChartDataModel(xAxis: hour(12), yAxis: 24),
-    ChartDataModel(xAxis: hour(13), yAxis: 33),
-    ChartDataModel(xAxis: hour(14), yAxis: 16),
-    ChartDataModel(xAxis: hour(15), yAxis: 14),
+    ChartDataModel(
+      xAxis: hour(hour: 0),
+      yAxis: 0,
+      hasBubble: Random(0).nextBool(),
+    ),
+    ChartDataModel(
+      xAxis: hour(hour: 1),
+      yAxis: 1,
+      hasBubble: Random(1).nextBool(),
+    ),
+    ChartDataModel(
+      xAxis: hour(hour: 2),
+      yAxis: 9,
+      hasBubble: Random(2).nextBool(),
+    ),
+    ChartDataModel(
+      xAxis: hour(hour: 3),
+      yAxis: 11,
+      hasBubble: Random(3).nextBool(),
+    ),
+    ChartDataModel(
+      xAxis: hour(hour: 4),
+      yAxis: 56,
+      hasBubble: Random(4).nextBool(),
+    ),
+    ChartDataModel(
+      xAxis: hour(hour: 5),
+      yAxis: 100,
+      hasBubble: Random(5).nextBool(),
+    ),
+    ChartDataModel(
+      xAxis: hour(hour: 6),
+      yAxis: 88,
+      hasBubble: Random(6).nextBool(),
+    ),
+    ChartDataModel(
+      xAxis: hour(hour: 7),
+      yAxis: 33,
+      hasBubble: Random(7).nextBool(),
+    ),
+    ChartDataModel(xAxis: hour(hour: 8), yAxis: 55),
+    ChartDataModel(xAxis: hour(hour: 9), yAxis: 77),
+    ChartDataModel(xAxis: hour(hour: 10), yAxis: 34),
+    ChartDataModel(xAxis: hour(hour: 11), yAxis: 2),
+    ChartDataModel(xAxis: hour(hour: 12), yAxis: 7),
   ];
 
   Size? size;
@@ -82,8 +123,7 @@ class _DraggableLineChartState extends State<DraggableLineChart> {
 
   /// 悬浮框内容
   InlineSpan _textFormatter(ChartDataModel data) {
-    var xAxis = DateFormat('HH:mm')
-        .format(DateTime.fromMillisecondsSinceEpoch(data.xAxis * 1000));
+    var xAxis = DateFormat('HH:mm').format(data.xAxis);
 
     /// 是否为异常数据
     var normalValue = 20;
@@ -115,8 +155,7 @@ class _DraggableLineChartState extends State<DraggableLineChart> {
 
   /// x轴坐标数据格式化
   String _xAxisFormatter(int index) {
-    return DateFormat('HH:mm')
-        .format(DateTime.fromMillisecondsSinceEpoch(data[index].xAxis * 1000));
+    return DateFormat('HH:mm').format(data[index].xAxis);
   }
 
   /// y轴坐标数据格式化
