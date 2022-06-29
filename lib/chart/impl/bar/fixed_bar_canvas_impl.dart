@@ -45,7 +45,7 @@ class FixedBarCanvasImpl extends BaseCanvas<ChartDataBar> {
       int seconds = model.time.difference(config.startDate).inSeconds;
       var offset = Offset(
         bounds.left + seconds * dw,
-        bounds.top + (model.index + 1) * itemHeight - barHeight,
+        bounds.top + model.index * itemHeight - barHeight,
       );
 
       /// 绘制Rect

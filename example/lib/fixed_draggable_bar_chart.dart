@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:example/style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chart/chart/chart/bar_chart.dart';
@@ -32,27 +30,27 @@ class _FixedDraggableBarChartState extends State<FixedDraggableBarChart> {
     return ChartDataBar(
       index: index,
       color: color,
-      time: DateTime.fromMillisecondsSinceEpoch(
-          (1655913600 + 3600 * hour) * 1000),
+      time: now.add(Duration(seconds: 3600 * hour)),
       duration: 60 * 60,
-      hasBubble: Random(hour).nextBool(),
+      // hasBubble: Random(hour).nextBool(),
+      hasBubble: true,
     );
   }
 
   /// 数据源
-  /// 0 深睡
-  /// 1 浅睡
+  /// 4 深睡
+  /// 3 浅睡
   /// 2 清醒
-  /// 3 离床
+  /// 1 离床
   final data = [
-    _buildModelBar(index: 3, hour: 12, color: const Color(0x26000000)),
-    _buildModelBar(index: 2, hour: 14, color: Colors.blueGrey),
-    _buildModelBar(index: 3, hour: 18, color: const Color(0x26000000)),
+    _buildModelBar(index: 4, hour: 12, color: const Color(0x26000000)),
+    _buildModelBar(index: 3, hour: 14, color: Colors.blueGrey),
+    _buildModelBar(index: 2, hour: 18, color: const Color(0x26000000)),
     _buildModelBar(index: 2, hour: 20, color: Colors.blueGrey),
-    _buildModelBar(index: 0, hour: 21, color: Colors.indigoAccent),
-    _buildModelBar(index: 3, hour: 22, color: const Color(0x26000000)),
-    _buildModelBar(index: 2, hour: 23, color: Colors.blueGrey),
-    _buildModelBar(index: 3, hour: 24, color: const Color(0x26000000)),
+    _buildModelBar(index: 1, hour: 21, color: Colors.indigoAccent),
+    _buildModelBar(index: 4, hour: 22, color: const Color(0x26000000)),
+    _buildModelBar(index: 3, hour: 23, color: Colors.blueGrey),
+    _buildModelBar(index: 2, hour: 24, color: const Color(0x26000000)),
   ];
 
   Size? size;

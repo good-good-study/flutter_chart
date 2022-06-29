@@ -69,9 +69,7 @@ abstract class BaseLayoutConfig<T> {
     GestureDelegate? gestureDelegate,
     PopupSpec<T>? popupSpec,
     EdgeInsets? padding,
-  }) {
-    return this;
-  }
+  });
 
   BaseLayoutConfig({
     required this.data,
