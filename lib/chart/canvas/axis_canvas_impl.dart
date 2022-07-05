@@ -95,18 +95,17 @@ class _AxisCanvas {
       var height = bounds.height;
       var lineStyle = delegate.hintLineStyle;
       var lineNum = delegate.hintLineNum;
-      var itemHeight = (height ~/ lineNum);
-      var lineHeight = delegate.hintLineStyle?.strokeWidth ?? 0;
+      var itemHeight = height ~/ lineNum;
 
-      for (var dis = 0; dis < height; dis += itemHeight) {
+      for (var index = 0; index < lineNum + 1; index++) {
         chartCanvas.drawLine(
           canvas: canvas,
           color: lineStyle?.color,
           strokeWidthPx: lineStyle?.strokeWidth,
           dashPattern: lineStyle?.dashPattern,
           points: [
-            Offset(bounds.left, bounds.top + dis + lineHeight * 2),
-            Offset(bounds.right, bounds.top + dis + lineHeight * 2),
+            Offset(bounds.left, bounds.bottom - itemHeight * index),
+            Offset(bounds.right, bounds.bottom - itemHeight * index),
           ],
         );
       }
@@ -186,17 +185,18 @@ class _AxisValueCanvas {
     canvas.restore();
 
     /// 绘制纵坐标
-    int num = delegate.hintLineNum + 1; // hintLineNum不包含x轴，所以要加上
-    var itemHeight = bounds.height ~/ (num - 1); // 比如，4个hintLine，中间是3个段落。
-    var dValue = config.maxValue / (num - 1);
+    int num = delegate.hintLineNum;
+    var itemHeight = bounds.height ~/ num; // 比如，4个hintLine，中间是3个段落。
+    var dValue = config.maxValue / num;
 
-    for (var index = 0; index < num; index++) {
+    for (var index = 0; index < num + 1; index++) {
       var element = TextElement(
         TextSpan(
           text: delegate.yAxisFormatter?.call(dValue * index, index),
           style: delegate.labelStyle?.style,
         ),
       );
+      element.textAlign=TextAlign.end;
       element.textDirection = common.TextDirection.center;
       chartCanvas.drawText(
         canvas: canvas,

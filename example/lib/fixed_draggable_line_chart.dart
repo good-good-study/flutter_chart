@@ -111,7 +111,7 @@ class _FixedDraggableLineChartState extends State<FixedDraggableLineChart> {
           size: Size(pixel - margin.horizontal, 264),
           delegate: CommonLineAxisDelegate.copyWith(
             yAxisFormatter: _yAxisFormatter,
-            minSelectWidth: 5,
+            minSelectWidth: 4,
             // domainPointSpacing: 128,
           ),
           popupSpec: CommonPopupSpec.copyWith(

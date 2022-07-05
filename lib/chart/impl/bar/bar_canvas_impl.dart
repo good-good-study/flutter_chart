@@ -48,7 +48,7 @@ class BarCanvasImpl extends BaseCanvas<ChartDataBar> {
       var offset = Offset(
         // bounds.left + itemWidth * index,
         bounds.left + begin * dw,
-        bounds.top + (model.index + 1) * itemHeight - barHeight,
+        bounds.bottom - model.index * itemHeight - barHeight,
       );
 
       /// 绘制Rect

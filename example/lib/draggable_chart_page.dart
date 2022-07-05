@@ -2,6 +2,7 @@ import 'package:example/draggable_line_chart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'draggable_bar_chart.dart';
 import 'fixed_draggable_bar_chart.dart';
 import 'fixed_draggable_line_chart.dart';
 
@@ -20,24 +21,44 @@ class DraggableChartPage extends StatelessWidget {
       ),
       child: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(vertical: 64),
-        child: Column(
-          children: const [
-            SizedBox(height: 24),
+        child: Material(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: 24),
 
-            /// Fixed Line Chart
-            DraggableLineChart(),
+              /// Line Chart
+              _title('Line Chart'),
+              DraggableLineChart(),
 
-            SizedBox(height: 8),
+              SizedBox(height: 8),
 
-            /// Line Chart
-            FixedDraggableLineChart(),
+              /// Fixed Line Chart
+              _title('Fixed Line Chart'),
+              FixedDraggableLineChart(),
 
-            // SizedBox(height: 24),
+              SizedBox(height: 8),
 
-            /// bar Chart
-            FixedDraggableBarChart(),
-          ],
+              /// bar Chart
+              _title('Bar Chart'),
+              DraggableBarChart(),
+
+              /// bar Chart
+              _title('Fixed Bar Chart'),
+              FixedDraggableBarChart(),
+            ],
+          ),
         ),
+      ),
+    );
+  }
+
+  Padding _title(String label) {
+    return Padding(
+      padding: EdgeInsets.all(16),
+      child: Text(
+        label,
+        style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
       ),
     );
   }

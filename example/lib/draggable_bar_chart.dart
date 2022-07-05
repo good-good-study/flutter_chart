@@ -7,20 +7,20 @@ import 'package:flutter_chart/chart/common/axis_delegate.dart';
 import 'package:flutter_chart/chart/common/base_layout_config.dart';
 import 'package:flutter_chart/chart/common/chart_gesture_view.dart';
 import 'package:flutter_chart/chart/common/popup_spec.dart';
-import 'package:flutter_chart/chart/impl/bar/fixed_bar_canvas_impl.dart';
-import 'package:flutter_chart/chart/impl/bar/fixed_bar_layout_impl.dart';
+import 'package:flutter_chart/chart/impl/bar/bar_canvas_impl.dart';
+import 'package:flutter_chart/chart/impl/bar/bar_layout_impl.dart';
 import 'package:flutter_chart/chart/model/chart_data_bar.dart';
 import 'package:intl/intl.dart';
 
 /// 可拖动、长按 的 Charts
-class FixedDraggableBarChart extends StatefulWidget {
-  const FixedDraggableBarChart({Key? key}) : super(key: key);
+class DraggableBarChart extends StatefulWidget {
+  const DraggableBarChart({Key? key}) : super(key: key);
 
   @override
-  State<FixedDraggableBarChart> createState() => _FixedDraggableBarChartState();
+  State<DraggableBarChart> createState() => _DraggableBarChartState();
 }
 
-class _FixedDraggableBarChartState extends State<FixedDraggableBarChart> {
+class _DraggableBarChartState extends State<DraggableBarChart> {
   static const labels = ['', '离床', '清醒', '浅睡', '深睡', ''];
 
   /// 构建一个测试ModelBar
@@ -38,15 +38,25 @@ class _FixedDraggableBarChartState extends State<FixedDraggableBarChart> {
     );
   }
 
+  /// 数据源
   final data = [
-    _buildModelBar(index: 4, hour: 0, color: const Color(0x26000000)),
-    _buildModelBar(index: 3, hour: 1, color: Colors.blueGrey),
-    _buildModelBar(index: 2, hour: 2, color: const Color(0x26000000)),
-    _buildModelBar(index: 2, hour: 3, color: Colors.blueGrey),
-    _buildModelBar(index: 1, hour: 4, color: Colors.indigoAccent),
-    _buildModelBar(index: 4, hour: 5, color: const Color(0x26000000)),
-    _buildModelBar(index: 3, hour: 7, color: Colors.blueGrey),
-    _buildModelBar(index: 2, hour: 8, color: const Color(0x26000000)),
+    _buildModelBar(index: 4, hour: 0, color: Colors.deepOrange),
+    _buildModelBar(index: 4, hour: 1, color: Colors.deepOrange),
+    _buildModelBar(index: 3, hour: 2, color: Colors.blueGrey),
+    _buildModelBar(index: 2, hour: 3, color: const Color(0x26000000)),
+    _buildModelBar(index: 2, hour: 5, color: Colors.blueGrey),
+    _buildModelBar(index: 1, hour: 6, color: Colors.indigoAccent),
+    _buildModelBar(index: 4, hour: 7, color: Colors.deepOrange),
+    _buildModelBar(index: 3, hour: 8, color: Colors.blueGrey),
+    _buildModelBar(index: 2, hour: 9, color: const Color(0x26000000)),
+    _buildModelBar(index: 4, hour: 10, color: Colors.deepOrange),
+    _buildModelBar(index: 3, hour: 12, color: Colors.blueGrey),
+    _buildModelBar(index: 2, hour: 14, color: const Color(0x26000000)),
+    _buildModelBar(index: 2, hour: 16, color: Colors.blueGrey),
+    _buildModelBar(index: 1, hour: 17, color: Colors.indigoAccent),
+    _buildModelBar(index: 4, hour: 18, color: Colors.deepOrange),
+    _buildModelBar(index: 3, hour: 19, color: Colors.blueGrey),
+    _buildModelBar(index: 2, hour: 20, color: const Color(0x26000000)),
   ];
 
   Size? size;
@@ -54,7 +64,7 @@ class _FixedDraggableBarChartState extends State<FixedDraggableBarChart> {
 
   /// x轴开始时间
   static final now = DateTime.now();
-  static final startDate = DateTime(now.year, now.month, now.day - 1, 12);
+  static final startDate = DateTime(now.year, now.month, now.day - 1);
 
   @override
   Widget build(BuildContext context) {
@@ -69,14 +79,11 @@ class _FixedDraggableBarChartState extends State<FixedDraggableBarChart> {
         borderRadius: BorderRadius.circular(8),
       ),
       child: ChartGestureView<ChartDataBar>(
-        initConfig: FixedBarLayoutConfig(
+        initConfig: BarLayoutConfig(
           data: data,
-          axisCount: 25,
-          startDateTime: startDate,
           size: Size(pixel - margin.horizontal, 264),
           delegate: CommonBarAxisDelegate.copyWith(
             yAxisFormatter: _yAxisFormatter,
-            minSelectWidth: 4,
             axisLineStyle: const LineStyle(
               color: Color(0xFFE5E5E5),
               dashPattern: [4],
@@ -109,7 +116,7 @@ class _FixedDraggableBarChartState extends State<FixedDraggableBarChart> {
           size: size!,
           painter: BarChart(
             data: data,
-            contentCanvas: FixedBarCanvasImpl(),
+            contentCanvas: BarCanvasImpl(),
             layoutConfig: newConfig as BaseLayoutConfig<ChartDataBar>,
           ),
         ),

@@ -96,14 +96,6 @@ abstract class BaseLayoutConfig<T> {
         // 坐标系原点
         originOffset = _initOriginOffset(size: size, padding: padding),
         // 最右边的点，包括不可见的坐标（即：可拖动查看的最右边的点坐标）
-        // endOffset = data.isEmpty
-        //     ? _initOriginOffset(size: size, padding: padding)
-        //     : _initEndOffset(
-        //         length: axisCount ?? data.length,
-        //         size: size,
-        //         delegate: delegate,
-        //         padding: padding,
-        //       ),
         endOffset = _initEndOffset(
           length: axisCount ?? data.length,
           size: size,
@@ -120,18 +112,6 @@ abstract class BaseLayoutConfig<T> {
             delegate: delegate,
             padding: padding,
           ),
-
-          // endOffset: data.isEmpty
-          //     ? Offset(
-          //         padding.left,
-          //         size.height - padding.bottom,
-          //       )
-          //     : _initEndOffset(
-          //         length: axisCount ?? data.length,
-          //         size: size,
-          //         delegate: delegate,
-          //         padding: padding,
-          //       ),
         );
 }
 

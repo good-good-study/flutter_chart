@@ -14,11 +14,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9d12650f-2e61-4730-9c04-bd2598ae0d91" name="Default Changelist" comment="修改ui文件名">
+      <change afterPath="$PROJECT_DIR$/example/lib/draggable_bar_chart.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/draggable_chart_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/draggable_chart_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/fixed_draggable_bar_chart.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/fixed_draggable_bar_chart.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/fixed_draggable_line_chart.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/fixed_draggable_line_chart.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/chart/canvas/axis_canvas_impl.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chart/canvas/axis_canvas_impl.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/chart/common/base_layout_config.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chart/common/base_layout_config.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/chart/impl/bar/fixed_bar_canvas_impl.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chart/impl/bar/fixed_bar_canvas_impl.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/chart/impl/bar/bar_canvas_impl.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chart/impl/bar/bar_canvas_impl.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/chart/impl/bar/bar_layout_impl.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chart/impl/bar/bar_layout_impl.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/chart/impl/bar/fixed_bar_layout_impl.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chart/impl/bar/fixed_bar_layout_impl.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/chart/model/chart_data_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/chart/model/chart_data_bar.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,9 +59,9 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/lib/chart/impl/line/line_layout_impl.dart" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/example/lib/example_page.dart" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/lib/chart/common/base_layout_config.dart" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/lib/chart/impl/line/line_layout_impl.dart" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/example/lib/draggable_line_chart.dart" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -148,16 +153,16 @@
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/chart/impl/bar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/example/lib" />
     <property name="settings.editor.selected.configurable" value="dart.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/example/lib" />
       <recent name="$PROJECT_DIR$/lib/chart/impl/bar" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/lib/chart/impl/line/fixed" />
-      <recent name="$PROJECT_DIR$/example/lib" />
       <recent name="$PROJECT_DIR$/lib/chart" />
     </key>
     <key name="MoveFile.RECENT_KEYS">

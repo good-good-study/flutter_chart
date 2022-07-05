@@ -85,7 +85,7 @@ class BarLayoutConfig extends BaseLayoutConfig<ChartDataBar> {
 
       var curr = Offset(
         bounds.left + dragX + seconds * dw - bubblePadding,
-        bounds.top + (model.index + 1) * itemHeight - barHeight,
+        bounds.bottom - model.index * itemHeight - barHeight,
       );
       if ((curr - offset).dx.abs() <= minSelectWidth) {
         find = ChartTargetFind(model, curr);

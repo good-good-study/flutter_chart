@@ -107,11 +107,11 @@ class FixedBarLayoutConfig extends BaseLayoutConfig<ChartDataBar> {
       var model = data[index];
       if (!model.hasBubble) continue;
 
-      int seconds = model.time.difference(startDate).inSeconds;
+      int seconds = model.time.difference(startDate).inSeconds + model.duration;
 
       var curr = Offset(
         bounds.left + dragX + seconds * dw - bubblePadding,
-        bounds.top + (model.index + 1) * itemHeight - barHeight,
+        bounds.bottom - model.index * itemHeight - barHeight,
       );
       if ((curr - offset).dx.abs() <= minSelectWidth) {
         find = ChartTargetFind(model, curr);
