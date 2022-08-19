@@ -39,10 +39,18 @@ class _ChartGestureViewState extends State<ChartGestureView> {
 
   double? get draggableWidth => widget.initConfig.draggableWidth;
 
+  Offset? get initializeOffset => widget.initConfig.getInitializeOffset();
+
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    _gestureDelegate = widget.initConfig.gestureDelegate ?? GestureDelegate();
+    _gestureDelegate = widget.initConfig.gestureDelegate ??
+        GestureDelegate().copyWith(
+          originOffset: originalOffset,
+          endOffset: endOffset,
+          initializeOffset: initializeOffset,
+          width: draggableWidth,
+        );
   }
 
   @override
@@ -87,6 +95,7 @@ class _ChartGestureViewState extends State<ChartGestureView> {
             _gestureDelegate = _gestureDelegate.copyWith(
               originOffset: originalOffset,
               endOffset: endOffset,
+              initializeOffset: initializeOffset,
               width: draggableWidth,
               type: GestureType.onDragStart,
               position: GesturePosition(
@@ -101,6 +110,7 @@ class _ChartGestureViewState extends State<ChartGestureView> {
             _gestureDelegate = _gestureDelegate.copyWith(
               originOffset: originalOffset,
               endOffset: endOffset,
+              initializeOffset: initializeOffset,
               width: draggableWidth,
               type: GestureType.onDragUpdate,
               position: GesturePosition(
@@ -115,6 +125,7 @@ class _ChartGestureViewState extends State<ChartGestureView> {
             _gestureDelegate = _gestureDelegate.copyWith(
               originOffset: originalOffset,
               endOffset: endOffset,
+              initializeOffset: initializeOffset,
               width: draggableWidth,
               type: GestureType.onDragEnd,
             );

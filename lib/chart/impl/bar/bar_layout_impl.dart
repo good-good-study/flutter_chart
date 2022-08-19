@@ -17,6 +17,7 @@ class BarLayoutConfig extends BaseLayoutConfig<ChartDataBar> {
     super.gestureDelegate,
     super.popupSpec,
     super.padding,
+    super.initializePosition,
   });
 
   @override
@@ -24,6 +25,7 @@ class BarLayoutConfig extends BaseLayoutConfig<ChartDataBar> {
     List<ChartDataBar>? data,
     Size? size,
     int? axisCount,
+    int? initializePosition,
     AxisDelegate<ChartDataBar>? delegate,
     GestureDelegate? gestureDelegate,
     PopupSpec<ChartDataBar>? popupSpec,
@@ -33,6 +35,7 @@ class BarLayoutConfig extends BaseLayoutConfig<ChartDataBar> {
       data: data ?? this.data,
       size: size ?? this.size,
       axisCount: axisCount ?? this.axisCount,
+      initializePosition: initializePosition ?? this.initializePosition,
       delegate: delegate ?? this.delegate,
       gestureDelegate: gestureDelegate ?? this.gestureDelegate,
       popupSpec: popupSpec ?? this.popupSpec,

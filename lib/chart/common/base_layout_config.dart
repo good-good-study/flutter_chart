@@ -1,4 +1,5 @@
-import 'package:flutter/foundation.dart';
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_chart/chart/common/style.dart';
 
@@ -41,6 +42,9 @@ abstract class BaseLayoutConfig<T> {
   /// 悬浮框样式
   final PopupSpec<T>? popupSpec;
 
+  /// 初始默认滑动到的数据索引
+  final int? initializePosition;
+
   /// 一组数据的最大值
   num get maxValue => 0.0;
 
@@ -62,10 +66,24 @@ abstract class BaseLayoutConfig<T> {
   /// 定义手势拖拽的宽度，一般为一屏的宽度。
   double? get draggableWidth => size.width - padding.horizontal;
 
+  /// 初始选中点坐标
+  Offset? getInitializeOffset() {
+    if (initializePosition == null) {
+      return null;
+    }
+    return _initEndOffset(
+      length: min(initializePosition!, axisCount ?? data.length),
+      size: size,
+      delegate: delegate,
+      padding: padding,
+    );
+  }
+
   /// 复用已有字段重新创建一个新的Config.
   BaseLayoutConfig<T> copyWith({
     Size? size,
     int? axisCount,
+    int? initializePosition,
     AxisDelegate<T>? delegate,
     GestureDelegate? gestureDelegate,
     PopupSpec<T>? popupSpec,
@@ -76,6 +94,7 @@ abstract class BaseLayoutConfig<T> {
     required this.data,
     required this.size,
     this.axisCount,
+    this.initializePosition,
     this.delegate,
     final GestureDelegate? gestureDelegate,
     this.popupSpec,
@@ -112,6 +131,14 @@ abstract class BaseLayoutConfig<T> {
             delegate: delegate,
             padding: padding,
           ),
+          initializeOffset: initializePosition == null
+              ? null
+              : _initEndOffset(
+                  length: min(initializePosition, axisCount ?? data.length),
+                  size: size,
+                  delegate: delegate,
+                  padding: padding,
+                ),
         );
 }
 
@@ -124,8 +151,6 @@ Offset _initOriginOffset({
     padding.left,
     size.height - padding.bottom,
   );
-  print('原点 : $offset');
-
   return offset;
 }
 
@@ -140,8 +165,5 @@ Offset _initEndOffset<T, V>({
     length * (delegate?.domainPointSpacing ?? kDomainPointSpacing),
     size.height - padding.bottom,
   );
-  if (kDebugMode) {
-    print('最右侧 : $offset');
-  }
   return offset;
 }

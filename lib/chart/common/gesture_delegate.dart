@@ -19,6 +19,9 @@ class GestureDelegate {
   /// 最右边的坐标
   final Offset endOffset;
 
+  /// charts初始偏移量
+  final Offset? initializeOffset;
+
   /// 一屏的宽度
   final double width;
 
@@ -27,6 +30,7 @@ class GestureDelegate {
     this.position,
     this.originOffset = Offset.zero,
     this.endOffset = Offset.zero,
+    this.initializeOffset,
     this.width = 0,
   });
 
@@ -36,6 +40,7 @@ class GestureDelegate {
     GesturePosition? position,
     Offset? originOffset,
     Offset? endOffset,
+    Offset? initializeOffset,
     double? width,
   }) {
     return GestureDelegate(
@@ -43,6 +48,7 @@ class GestureDelegate {
       position: position ?? this.position,
       originOffset: originOffset ?? this.originOffset,
       endOffset: endOffset ?? this.endOffset,
+      initializeOffset: initializeOffset ?? this.initializeOffset,
       width: width ?? this.width,
     )
       .._totalOffset = offset
@@ -56,9 +62,26 @@ class GestureDelegate {
   /// 每次从拖拽开始时记录初始偏移量
   Offset? _initDragOffset;
 
-  Offset get offset => _totalOffset;
+  /// 真实的偏移量，用于绘制
+  Offset get offset {
+    if (initDragOffset == null && initializeOffset != null) {
+      _totalOffset = getInitializeOffset(initializeOffset!);
+      _initDragOffset = _totalOffset;
+    }
+    return _totalOffset;
+  }
 
   Offset? get initDragOffset => _initDragOffset;
+
+  /// 根据给定的点坐标计算偏移量
+  /// 只有绘制内容超过一屏的宽度，才允许拖拽。
+  Offset getInitializeOffset(Offset offset) {
+    if (offset.dx - originOffset.dx <= width) {
+      return Offset.zero;
+    }
+    // 将目标点位移动至原点
+    return Offset(originOffset.dx - offset.dx, offset.dy);
+  }
 
   /// 最大偏移量
   Offset get maxOffset =>

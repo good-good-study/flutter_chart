@@ -17,6 +17,6 @@ class ChartDataModel implements Comparable<ChartDataModel> {
 
   @override
   String toString() {
-    return '{"xAxis":"$xAxis","yAxis":"$yAxis","hasBubble":"$hasBubble"}';
+    return '{"xAxis":"$xAxis","yAxis":$yAxis,"hasBubble":$hasBubble}';
   }
 }

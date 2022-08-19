@@ -20,6 +20,7 @@ class FixedLayoutConfig extends BaseLayoutConfig<ChartDataModel> {
     super.gestureDelegate,
     super.popupSpec,
     super.padding,
+    super.initializePosition,
   }) :
         // 默认从当日的零时开始
         startDate = startDateTime ??
@@ -34,6 +35,7 @@ class FixedLayoutConfig extends BaseLayoutConfig<ChartDataModel> {
     List<ChartDataModel>? data,
     int? axisCount,
     Size? size,
+    int? initializePosition,
     DateTime? startDate,
     AxisDelegate<ChartDataModel>? delegate,
     GestureDelegate? gestureDelegate,
@@ -45,6 +47,7 @@ class FixedLayoutConfig extends BaseLayoutConfig<ChartDataModel> {
       size: size ?? this.size,
       startDateTime: startDate ?? this.startDate,
       axisCount: axisCount ?? this.axisCount,
+      initializePosition: initializePosition ?? this.initializePosition,
       delegate: delegate ?? this.delegate,
       gestureDelegate: gestureDelegate ?? this.gestureDelegate,
       popupSpec: popupSpec ?? this.popupSpec,
@@ -97,6 +100,29 @@ class FixedLayoutConfig extends BaseLayoutConfig<ChartDataModel> {
     return str;
   }
 
+  /// 初始选中点坐标
+  @override
+  Offset? getInitializeOffset() {
+    if (initializePosition == null || data.isEmpty) {
+      return null;
+    }
+    // 目标点位置
+    var position = min(initializePosition!, data.length - 1);
+    // 两点之间的距离
+    var itemWidth = delegate!.domainPointSpacing;
+    // 当前拖拽的偏移量
+    var dragX = (gestureDelegate?.offset ?? Offset.zero).dx;
+    // 1s时长对应的宽度，全程24小时，两个点之间的跨度为1小时。
+    var dw = itemWidth / 3600; // 3600s为1小时
+
+    var model = data[position];
+    var seconds = model.xAxis.difference(startDate).inSeconds;
+    return Offset(
+      bounds.left + dragX + dw * seconds,
+      bounds.bottom - yAxisValue(model) / maxValue * bounds.height,
+    );
+  }
+
   /// 根据手势触摸坐标查找指定数据点位
   @override
   ChartTargetFind<ChartDataModel>? findTarget(Offset offset) {
@@ -107,8 +133,7 @@ class FixedLayoutConfig extends BaseLayoutConfig<ChartDataModel> {
     var minSelectWidth = delegate!.minSelectWidth ?? itemWidth;
     // 当前拖拽的偏移量
     var dragX = (gestureDelegate?.offset ?? Offset.zero).dx;
-
-    /// 1s时长对应的宽度，全程24小时，两个点之间的跨度为1小时。
+    // 1s时长对应的宽度，全程24小时，两个点之间的跨度为1小时。
     var dw = itemWidth / 3600; // 3600s为1小时
 
     for (var index = 0; index < data.length; index++) {

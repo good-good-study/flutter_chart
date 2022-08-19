@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_chart/chart/common/axis_delegate.dart';
 import 'package:flutter_chart/chart/common/base_layout_config.dart';
@@ -18,6 +20,7 @@ class FixedBarLayoutConfig extends BaseLayoutConfig<ChartDataBar> {
     super.gestureDelegate,
     super.popupSpec,
     super.padding,
+    super.initializePosition,
   }) :
         // 默认从当日的零时开始
         startDate = startDateTime ??
@@ -32,6 +35,7 @@ class FixedBarLayoutConfig extends BaseLayoutConfig<ChartDataBar> {
     List<ChartDataBar>? data,
     Size? size,
     int? axisCount,
+    int? initializePosition,
     DateTime? startDate,
     AxisDelegate<ChartDataBar>? delegate,
     GestureDelegate? gestureDelegate,
@@ -43,6 +47,7 @@ class FixedBarLayoutConfig extends BaseLayoutConfig<ChartDataBar> {
       size: size ?? this.size,
       startDateTime: startDate ?? this.startDate,
       axisCount: axisCount ?? this.axisCount,
+      initializePosition: initializePosition ?? this.initializePosition,
       delegate: delegate ?? this.delegate,
       gestureDelegate: gestureDelegate ?? this.gestureDelegate,
       popupSpec: popupSpec ?? this.popupSpec,
@@ -78,6 +83,42 @@ class FixedBarLayoutConfig extends BaseLayoutConfig<ChartDataBar> {
   /// 拖拽的最大宽度
   @override
   double? get draggableWidth => size.width - padding.horizontal;
+
+  /// 初始选中点坐标
+  @override
+  Offset? getInitializeOffset() {
+    if (delegate == null ||
+        initializePosition == null ||
+        initializePosition! < 0 ||
+        data.isEmpty) {
+      return null;
+    }
+    // 目标点位置
+    var position = min(initializePosition!, data.length - 1);
+    // 两点之间的距离
+    var itemWidth = delegate!.domainPointSpacing;
+    // 当前拖拽的偏移量
+    var dragX = gestureDelegate?.offset.dx ?? 0;
+
+    /// y轴方向每段高度。
+    var itemHeight = bounds.height / delegate!.hintLineNum;
+
+    /// 1s时长对应的宽度，全程24小时，两个点之间的跨度为1小时。
+    var dw = itemWidth / 3600; // 3600s为1小时
+
+    /// bar高度
+    var barHeight = 9;
+
+    /// bubble 距离bar 右侧的距离
+    var bubblePadding = 5;
+
+    var model = data[position];
+    int seconds = model.time.difference(startDate).inSeconds + model.duration;
+    return Offset(
+      bounds.left + dragX + seconds * dw - bubblePadding,
+      bounds.bottom - model.index * itemHeight - barHeight,
+    );
+  }
 
   /// 根据手势触摸坐标查找指定数据点位
   @override
