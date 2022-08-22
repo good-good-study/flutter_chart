@@ -82,8 +82,11 @@ class _FixedDraggableLineChartState extends State<FixedDraggableLineChart> {
       yAxis: 34,
       hasBubble: Random(10).nextBool(),
     ),
-    ChartDataModel(xAxis: hour(hour: 11), yAxis: 2),
     ChartDataModel(xAxis: hour(hour: 12), yAxis: 7),
+    ChartDataModel(xAxis: hour(hour: 18), yAxis: 55),
+    ChartDataModel(xAxis: hour(hour: 22), yAxis: 2),
+    ChartDataModel(xAxis: hour(hour: 23), yAxis: 60),
+    ChartDataModel(xAxis: hour(hour: 24), yAxis: 7),
   ];
 
   Size? size;
@@ -107,6 +110,7 @@ class _FixedDraggableLineChartState extends State<FixedDraggableLineChart> {
         initConfig: FixedLayoutConfig(
           data: data,
           axisCount: 25,
+          initializePosition: 0,
           startDateTime: startDate,
           size: Size(pixel - margin.horizontal, 264),
           delegate: CommonLineAxisDelegate.copyWith(

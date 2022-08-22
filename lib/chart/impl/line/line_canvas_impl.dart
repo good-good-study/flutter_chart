@@ -51,10 +51,10 @@ class LineCanvasImpl extends BaseCanvas<ChartDataModel> {
         dashPattern: delegate.lineStyle?.dashPattern,
         roundEndCaps: true,
         clipBounds: Rectangle(
-          bounds.left - lineSize * 2 - (gestureDelegate?.offset.dx ?? 0),
+          bounds.left - lineSize - (gestureDelegate?.offset.dx ?? 0),
           bounds.top - lineSize,
-          bounds.width + lineSize * 2,
-          bounds.height + lineSize * 2,
+          bounds.width + lineSize,
+          bounds.height + lineSize,
         ),
       );
     } else {
@@ -67,10 +67,10 @@ class LineCanvasImpl extends BaseCanvas<ChartDataModel> {
         dashPattern: delegate.lineStyle?.dashPattern,
         roundEndCaps: true,
         clipBounds: Rectangle(
-          bounds.left - lineSize * 2 - (gestureDelegate?.offset.dx ?? 0),
+          bounds.left - lineSize - (gestureDelegate?.offset.dx ?? 0),
           bounds.top - lineSize,
-          bounds.width + lineSize * 2,
-          bounds.height + lineSize * 2,
+          bounds.width + lineSize,
+          bounds.height + lineSize,
         ),
       );
     }

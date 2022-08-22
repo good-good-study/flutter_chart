@@ -65,8 +65,12 @@ class GestureDelegate {
   /// 真实的偏移量，用于绘制
   Offset get offset {
     if (initDragOffset == null && initializeOffset != null) {
-      _totalOffset = getInitializeOffset(initializeOffset!);
-      _initDragOffset = _totalOffset;
+      var offset = getInitializeOffset(initializeOffset!);
+      if (offset.dx.abs() > maxOffset.dx.abs()) {
+        offset = Offset(-maxOffset.dx, offset.dy);
+      }
+      _totalOffset = offset;
+      _initDragOffset = offset;
     }
     return _totalOffset;
   }
