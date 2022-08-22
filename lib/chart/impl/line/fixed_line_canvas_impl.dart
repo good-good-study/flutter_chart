@@ -28,7 +28,7 @@ class FixedLineCanvasImpl extends BaseCanvas<ChartDataModel> {
     var points = <Offset>[];
 
     var itemWidth = delegate.domainPointSpacing;
-    var lineHeight = config.delegate?.lineStyle?.strokeWidth ?? 0;
+    var lineSize = config.delegate?.lineStyle?.strokeWidth ?? 0;
     var maxValue = config.maxValue;
     var maxHeight = bounds.height;
 
@@ -46,7 +46,7 @@ class FixedLineCanvasImpl extends BaseCanvas<ChartDataModel> {
     }
 
     /// 绘制曲线
-    /// 这里加上[lineHeight]，是为了让曲线点能在top和bottom上完全显示出来。
+    /// 这里加上[lineSize]，是为了让曲线点能在top和bottom上完全显示出来。
     if (delegate.lineStyle?.isCurved ?? true) {
       chartCanvas.drawCurvedLine(
         canvas: canvas,
@@ -57,10 +57,10 @@ class FixedLineCanvasImpl extends BaseCanvas<ChartDataModel> {
         dashPattern: delegate.lineStyle?.dashPattern,
         roundEndCaps: true,
         clipBounds: Rectangle(
-          bounds.left - (gestureDelegate?.offset.dx ?? 0),
-          bounds.top - lineHeight,
-          bounds.width,
-          bounds.height + lineHeight * 2,
+          bounds.left - lineSize * 2 - (gestureDelegate?.offset.dx ?? 0),
+          bounds.top - lineSize,
+          bounds.width + lineSize * 2,
+          bounds.height + lineSize * 2,
         ),
       );
     } else {
@@ -73,10 +73,10 @@ class FixedLineCanvasImpl extends BaseCanvas<ChartDataModel> {
         dashPattern: delegate.lineStyle?.dashPattern,
         roundEndCaps: true,
         clipBounds: Rectangle(
-          bounds.left - (gestureDelegate?.offset.dx ?? 0),
-          bounds.top - lineHeight,
-          bounds.width,
-          bounds.height + lineHeight * 2,
+          bounds.left - lineSize * 2 - (gestureDelegate?.offset.dx ?? 0),
+          bounds.top - lineSize,
+          bounds.width + lineSize * 2,
+          bounds.height + lineSize * 2,
         ),
       );
     }

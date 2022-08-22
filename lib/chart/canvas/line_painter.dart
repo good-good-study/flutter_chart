@@ -39,6 +39,13 @@ class LinePainter {
     if (points.length == 1) {
       final point = points.first;
       paint.style = PaintingStyle.fill;
+      if (strokeWidthPx != null) {
+        paint.strokeWidth = strokeWidthPx;
+      }
+      paint.strokeJoin = StrokeJoin.round;
+      if (color != null) {
+        paint.color = color;
+      }
       canvas.drawCircle(Offset(point.dx, point.dy), strokeWidthPx ?? 0, paint);
     } else {
       if (strokeWidthPx != null) {
